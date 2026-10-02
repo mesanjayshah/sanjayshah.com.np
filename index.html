@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; base-uri 'none'; form-action https://formspree.io; object-src 'none'">
   <meta name="color-scheme" content="light dark">
   <meta name="theme-color" content="#fafaf9" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#0c0a09" media="(prefers-color-scheme: dark)">
@@ -77,6 +77,7 @@
         <div class="actions">
           <a class="btn btn-primary" href="#work">Selected work</a>
           <a class="btn btn-ghost" href="#contact">Get in touch</a>
+          <a class="btn btn-ghost" href="assets/resume.pdf" download>Résumé (PDF)</a>
         </div>
       </div>
       <img class="portrait" src="assets/profile.jpeg" alt="Portrait of Sanjay Shah" width="320" height="320" fetchpriority="high">
@@ -86,7 +87,7 @@
       <h2 id="about-title">About</h2>
       <div class="prose">
         <p>I design, build and operate secure, scalable applications — mostly on the JVM. My core strengths are Java and Spring Boot, microservice and REST API design, and cloud-native delivery on AWS, with full-stack work in React and TypeScript when the product needs it.</p>
-        <p>A large part of my recent work is identity and access management: OAuth2 and OIDC flows, SAML federation, SCIM provisioning and large-scale identity migrations for enterprise customers. Earlier, I built and modernised multi-tenant SaaS ERP modules for the education sector. I enjoy mentoring engineers, raising secure-coding standards and turning legacy systems into maintainable ones.</p>
+        <p>Today I build healthcare information systems. Before that, a large part of my work was identity and access management: OAuth2 and OIDC flows, SAML federation, SCIM provisioning and large-scale identity migrations for enterprise customers. Earlier, I built and modernised multi-tenant SaaS ERP modules for the education sector. I enjoy mentoring engineers, raising secure-coding standards and turning legacy systems into maintainable ones.</p>
       </div>
     </section>
 
@@ -96,37 +97,43 @@
         <div class="skill-group">
           <h3>Backend</h3>
           <ul class="chips">
-            <li>Java 8+</li><li>Spring Boot</li><li>Hibernate / JPA</li><li>J2EE</li><li>Microservices</li><li>REST API design</li><li>Multithreading</li><li>OOP &amp; design patterns</li><li>Thymeleaf / JSP</li><li>RabbitMQ</li><li>AWS SQS / SNS</li><li>Maven / Gradle</li>
+            <li>Java 8 → 25</li><li>Virtual threads</li><li>Spring Boot</li><li>Hibernate / JPA</li><li>J2EE</li><li>Microservices</li><li>REST API design</li><li>Multithreading</li><li>OOP &amp; design patterns</li><li>Thymeleaf / JSP</li><li>Apache Kafka</li><li>Event-driven / outbox pattern</li><li>RabbitMQ</li><li>AWS SQS / SNS</li><li>Maven / Gradle</li>
           </ul>
         </div>
         <div class="skill-group">
           <h3>Frontend</h3>
           <ul class="chips">
-            <li>React</li><li>TypeScript</li><li>JavaScript</li><li>HTML &amp; CSS</li><li>Bootstrap</li><li>jQuery</li><li>UI/UX collaboration</li><li>Accessibility</li>
+            <li>React</li><li>TypeScript</li><li>JavaScript</li><li>HTML &amp; CSS</li><li>Tailwind CSS</li><li>HTMX</li><li>Alpine.js</li><li>Bootstrap</li><li>jQuery</li><li>UI/UX collaboration</li><li>Accessibility</li>
           </ul>
         </div>
         <div class="skill-group">
           <h3>Cloud &amp; DevOps</h3>
           <ul class="chips">
-            <li>AWS EC2</li><li>AWS S3</li><li>AWS Lambda</li><li>API Gateway</li><li>Docker</li><li>Kubernetes (basic)</li><li>Jenkins</li><li>CI/CD</li><li>Git</li>
+            <li>AWS EC2</li><li>AWS S3</li><li>AWS Lambda</li><li>API Gateway</li><li>Docker</li><li>Kubernetes (k3s)</li><li>Helm</li><li>Argo CD (GitOps)</li><li>Terraform / OpenTofu</li><li>GitHub Actions</li><li>Jenkins</li><li>Prometheus</li><li>Git</li>
           </ul>
         </div>
         <div class="skill-group">
           <h3>Data</h3>
           <ul class="chips">
-            <li>PostgreSQL</li><li>MySQL</li><li>MongoDB</li><li>DynamoDB</li><li>Multi-tenant data models</li>
+            <li>PostgreSQL</li><li>Row-level security</li><li>Flyway migrations</li><li>Redis</li><li>MySQL</li><li>MongoDB</li><li>DynamoDB</li><li>Multi-tenant data models</li>
           </ul>
         </div>
         <div class="skill-group">
           <h3>Security &amp; Compliance</h3>
           <ul class="chips">
-            <li>OAuth2</li><li>OpenID Connect</li><li>SAML</li><li>SCIM</li><li>LDAP</li><li>JWT</li><li>SSO &amp; federation</li><li>Okta</li><li>Auth0</li><li>Keycloak</li><li>Static analysis (Checkmarx, SonarQube)</li><li>Secure coding practices</li>
+            <li>OAuth2</li><li>OpenID Connect</li><li>SAML</li><li>SCIM</li><li>LDAP</li><li>JWT</li><li>SSO &amp; federation</li><li>Okta</li><li>Auth0</li><li>Keycloak</li><li>Static analysis (Checkmarx, SonarQube, Semgrep)</li><li>Trivy</li><li>gitleaks</li><li>Checkov</li><li>Kubescape</li><li>Cosign image signing</li><li>DevSecOps pipelines</li><li>Secure coding practices</li>
           </ul>
         </div>
         <div class="skill-group">
           <h3>AI-assisted Engineering</h3>
           <ul class="chips">
-            <li>AI coding agents (Claude Code)</li><li>Multi-agent workflows</li><li>AI-assisted code review</li><li>AI-assisted testing &amp; debugging</li>
+            <li>Claude Code</li><li>MCP servers</li><li>Multi-agent workflows</li><li>Caveman (token-efficient agent mode)</li><li>Ponytail (minimal-code discipline)</li><li>AI-assisted code review</li><li>AI-assisted testing &amp; debugging</li>
+          </ul>
+        </div>
+        <div class="skill-group">
+          <h3>Testing &amp; Quality</h3>
+          <ul class="chips">
+            <li>Playwright E2E</li><li>JUnit 5</li><li>Mockito</li><li>Testcontainers</li><li>ArchUnit</li><li>MockMvc</li>
           </ul>
         </div>
       </div>
@@ -197,7 +204,6 @@
     <section class="section reveal" id="experience" aria-labelledby="experience-title">
       <h2 id="experience-title">Experience</h2>
       <!-- Employer names intentionally omitted; roles described by domain. -->
-      <!-- TODO: assets/resume.pdf still contains employer and client names. Regenerate it without them before linking it more prominently. -->
       <ol class="timeline">
         <li>
           <p class="period">Nov 2025 — present</p>
@@ -220,13 +226,22 @@
         <li>Master of Computer Science — in progress</li>
         <li>Bachelor of Computer Science — 2015–2019</li>
       </ul>
-      <p class="muted small">A full CV is available on request. <a href="assets/resume.pdf">PDF version</a>.</p>
+      <p><a class="btn btn-ghost" href="assets/resume.pdf" download>Download résumé (PDF)</a></p>
     </section>
 
     <section class="section reveal" id="contact" aria-labelledby="contact-title">
       <h2 id="contact-title">Contact</h2>
       <p class="section-intro">Open to senior backend, healthcare, identity and platform engineering work. The quickest way to reach me is email.</p>
-      <!-- TODO: the old site posted a contact form to Formspree (form id mldwagrd). Dropped to keep the CSP self-only; re-add with form-action https://formspree.io if a form is wanted. -->
+      <form class="contact-form" action="https://formspree.io/f/mldwagrd" method="POST">
+        <label for="cf-name">Name</label>
+        <input id="cf-name" name="name" type="text" autocomplete="name" maxlength="100" required>
+        <label for="cf-email">Email</label>
+        <input id="cf-email" name="email" type="email" autocomplete="email" maxlength="200" placeholder="name@company.com" required>
+        <label for="cf-message">Message</label>
+        <textarea id="cf-message" name="message" rows="5" maxlength="4000" required></textarea>
+        <input type="text" name="_gotcha" class="visually-hidden" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button class="btn btn-primary" type="submit">Send message</button>
+      </form>
       <ul class="contact-list">
         <li><a href="mailto:messanjayshah@gmail.com">messanjayshah@gmail.com</a></li>
         <li><a href="tel:+9779863274892">+977 986 327 4892</a></li>

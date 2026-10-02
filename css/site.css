@@ -166,3 +166,12 @@ main { max-width: var(--max); margin: 0 auto; padding: 0 1rem; }
   .js .reveal { opacity: 0; transform: translateY(14px); transition: opacity 0.5s ease, transform 0.5s ease; }
   .js .reveal.in { opacity: 1; transform: none; }
 }
+
+.contact-form { display: grid; gap: 0.4rem; max-width: 36rem; margin-bottom: 2rem; }
+.contact-form label { font-weight: 600; margin-top: 0.6rem; }
+.contact-form input, .contact-form textarea {
+  font: inherit; color: var(--text); background: var(--surface);
+  border: 1px solid var(--border); border-radius: 0.6rem; padding: 0.65rem 0.8rem; width: 100%;
+}
+.contact-form button { justify-self: start; margin-top: 1rem; cursor: pointer; }
+.visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }

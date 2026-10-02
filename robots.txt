@@ -1,4 +1,3 @@
 User-agent: *
 Allow: /
-Disallow: /assets/resume.pdf
 Sitemap: https://sanjayshah.com.np/sitemap.xml
