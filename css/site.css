@@ -153,7 +153,7 @@ h2 { font-size: clamp(1.75rem, 3.2vw, 2.4rem); max-width: 26ch; }
 .points li { position: relative; padding-left: 18px; color: var(--fg-2); font-size: 0.9rem; line-height: 1.5; }
 .points li::before { content: ""; position: absolute; left: 0; top: 0.65em; width: 9px; height: 2px; background: var(--accent-2); }
 .more { margin-top: auto; padding-top: 6px; }
-.more summary { cursor: pointer; font-family: var(--font-mono); font-size: 0.76rem; color: var(--accent); letter-spacing: 0.06em; text-transform: uppercase; list-style: none; display: inline-flex; align-items: center; gap: 6px; }
+.more summary { cursor: pointer; font-family: var(--font-mono); font-size: 0.76rem; color: var(--accent); letter-spacing: 0.06em; text-transform: uppercase; list-style: none; display: inline-flex; align-items: center; gap: 6px; min-height: 44px; }
 .more summary::-webkit-details-marker { display: none; }
 .more summary::after { content: "+"; font-size: 1rem; }
 .more[open] summary::after { content: "−"; }
@@ -369,3 +369,4 @@ h2 { font-size: clamp(1.75rem, 3.2vw, 2.4rem); max-width: 26ch; }
   .cs-dup { opacity: 0.3; }
   .cs-no { opacity: 1; }
 }
+@media (max-width: 560px) { .glance-list dt, .lbl { font-size: 0.75rem; } }
