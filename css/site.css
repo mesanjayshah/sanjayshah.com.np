@@ -94,7 +94,7 @@ h2 { font-size: clamp(1.75rem, 3.2vw, 2.4rem); max-width: 26ch; }
 
 /* ---------- hero ---------- */
 .hero { max-width: var(--maxw); margin: 0 auto; padding: clamp(36px, 5.5vw, 64px) var(--gutter) clamp(36px, 5vw, 56px); }
-.hero-grid { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(300px, 0.6fr); gap: clamp(28px, 5vw, 72px); align-items: center; }
+.hero-grid { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(320px, 0.75fr); gap: clamp(28px, 5vw, 72px); align-items: center; }
 .hero h1 { font-size: clamp(2rem, 3.1vw, 2.6rem); font-weight: 640; letter-spacing: -0.035em; line-height: 1.04; margin: 0 0 18px; }
 .hero h1 em { font-style: normal; background: linear-gradient(90deg, var(--accent), var(--accent-2)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
 .lead { font-size: clamp(1.05rem, 1.5vw, 1.25rem); color: var(--fg-2); margin-bottom: 26px; max-width: 54ch; }
@@ -105,15 +105,15 @@ h2 { font-size: clamp(1.75rem, 3.2vw, 2.4rem); max-width: 26ch; }
 .bignum span { display: block; font-size: 0.86rem; color: var(--fg-3); margin-top: 6px; }
 .glance { padding: 22px; border-radius: 20px; border: 1px solid var(--line); background: color-mix(in srgb, var(--bg-2) 92%, transparent); box-shadow: var(--shadow); position: relative; }
 .glance::before { content: ""; position: absolute; inset: -1px; border-radius: 21px; pointer-events: none; padding: 1px; background: linear-gradient(135deg, var(--accent-line), transparent 45%, transparent 60%, color-mix(in srgb, var(--accent-2) 40%, transparent)); -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude; }
-.glance-head { display: flex; align-items: center; gap: 14px; margin-bottom: 16px; }
-.avatar { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; border: 2px solid var(--line-2); }
+.glance-head { display: grid; gap: 14px; margin-bottom: 16px; }
+.glance-photo { width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 30%; border-radius: 14px; border: 1px solid var(--line-2); }
 .glance-kicker { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); }
 .glance-name { font-weight: 700; font-size: 1.15rem; }
 .glance-list { display: grid; gap: 10px; margin-bottom: 18px; }
-.glance-list div { display: grid; grid-template-columns: 86px 1fr; gap: 10px; align-items: baseline; padding-bottom: 10px; border-bottom: 1px dashed var(--line); }
+.glance-list div { display: grid; grid-template-columns: 86px minmax(0, 1fr); gap: 10px; align-items: baseline; padding-bottom: 10px; border-bottom: 1px dashed var(--line); }
 .glance-list div:last-child { border-bottom: 0; }
 .glance-list dt { font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--fg-3); }
-.glance-list dd { font-size: 0.92rem; color: var(--fg); display: inline-flex; gap: 6px; align-items: baseline; flex-wrap: wrap; }
+.glance-list dd { min-width: 0; overflow-wrap: anywhere; font-size: 0.92rem; color: var(--fg); display: inline-flex; gap: 6px; align-items: baseline; flex-wrap: wrap; }
 .glance-list dd svg { color: var(--accent); align-self: center; }
 @media (max-width: 900px) { .hero-grid { grid-template-columns: 1fr; } .hint { display: none; } .hero h1 { max-width: none; } }
 
