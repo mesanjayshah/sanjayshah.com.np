@@ -1,122 +1,242 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="description" content="Sanjay Shah - Senior Software Engineer Portfolio" />
-    <meta name="author" content="Sanjay Shah" />
-    <title>Sanjay Shah - Portfolio</title>
-    <!-- Favicon-->
-    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-    <!-- Custom Google font-->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
-    <!-- Bootstrap icons-->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet" />
-    <!-- Core theme CSS (includes Bootstrap)-->
-    <link href="css/styles.css" rel="stylesheet" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#fafaf9" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0c0a09" media="(prefers-color-scheme: dark)">
+
+  <title>Sanjay Shah — Senior Software Engineer</title>
+  <meta name="description" content="Senior Software Engineer building secure, scalable Java and Spring Boot systems: identity and access management (OAuth2, OIDC, SAML, SCIM), multi-tenant SaaS ERP platforms, and cloud-native services on AWS.">
+  <meta name="author" content="Sanjay Shah">
+  <link rel="canonical" href="https://sanjayshah.com.np/">
+  <link rel="icon" href="assets/favicon.ico" sizes="any">
+
+  <meta property="og:type" content="profile">
+  <meta property="og:title" content="Sanjay Shah — Senior Software Engineer">
+  <meta property="og:description" content="Secure, scalable Java systems: identity and access management, multi-tenant SaaS, cloud-native services on AWS.">
+  <meta property="og:url" content="https://sanjayshah.com.np/">
+  <meta property="og:image" content="https://sanjayshah.com.np/assets/profile.jpeg">
+  <meta property="og:image:alt" content="Portrait of Sanjay Shah">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Sanjay Shah — Senior Software Engineer">
+  <meta name="twitter:description" content="Secure, scalable Java systems: identity and access management, multi-tenant SaaS, cloud-native services on AWS.">
+  <meta name="twitter:image" content="https://sanjayshah.com.np/assets/profile.jpeg">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Sanjay Shah",
+    "url": "https://sanjayshah.com.np/",
+    "image": "https://sanjayshah.com.np/assets/profile.jpeg",
+    "jobTitle": "Senior Software Engineer",
+    "email": "mailto:messanjayshah@gmail.com",
+    "telephone": "+9779863274892",
+    "address": { "@type": "PostalAddress", "addressLocality": "Kathmandu", "addressCountry": "NP" },
+    "sameAs": [
+      "https://github.com/mesanjayshah",
+      "https://www.linkedin.com/in/mesanjay/",
+      "https://www.credly.com/users/sanjay-shah.861076ff"
+    ],
+    "knowsAbout": ["Java", "Spring Boot", "Microservices", "OAuth2", "OpenID Connect", "SAML", "SCIM", "AWS", "React", "TypeScript", "PostgreSQL"]
+  }
+  </script>
+
+  <link rel="stylesheet" href="css/site.css">
+  <script src="js/main.js"></script>
 </head>
-<body class="d-flex flex-column h-100">
-<main class="flex-shrink-0">
-    <!-- Navigation-->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white py-3">
-        <div class="container px-5">
-            <a class="navbar-brand" href="index.html"><span class="fw-bolder text-primary">Sanjay Shah</span></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 small fw-bolder">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="resume.html">Resume</a></li>
-                    <li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-                </ul>
-            </div>
-        </div>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <header class="site-header">
+    <nav class="nav" aria-label="Primary">
+      <a class="brand" href="#top">Sanjay Shah</a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button class="theme-toggle" type="button" id="theme-toggle" aria-pressed="false" aria-label="Switch to dark theme">
+        <svg class="icon-sun" aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+        <svg class="icon-moon" aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
     </nav>
+  </header>
 
-    <!-- Header-->
-    <header class="py-5">
-        <div class="container px-5 pb-5">
-            <div class="row gx-5 align-items-center">
-                <div class="col-xxl-5">
-                    <!-- Header text content-->
-                    <div class="text-center text-xxl-start">
-                        <div class="badge bg-gradient-primary-to-secondary text-white mb-4">
-                            <div class="text-uppercase">Senior Software Engineer &middot; Java &middot; Cloud</div>
-                        </div>
-                        <div class="fs-3 fw-light text-muted">Hi, I'm Sanjay Shah</div>
-                        <h1 class="display-3 fw-bolder mb-5">
-                            <span class="text-gradient d-inline">Building secure, scalable, high-performance solutions</span>
-                        </h1>
-                        <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xxl-start mb-3">
-                            <a class="btn btn-primary btn-lg px-5 py-3 me-sm-3 fs-6 fw-bolder" href="resume.html">Resume</a>
-                            <a class="btn btn-outline-dark btn-lg px-5 py-3 fs-6 fw-bolder" href="projects.html">Projects</a>
-                        </div>
-                        <div class="fs-6 text-muted">
-                            📞 +977 9863274892 | ✉️ <a href="mailto:messanjayshah@gmail.com">messanjayshah@gmail.com</a> | 🌐 <a href="https://www.linkedin.com/in/sanjayshah" target="_blank">LinkedIn</a> | 🎓 <a href="https://www.credly.com/users/sanjay-shah.861076ff" target="_blank">Credly</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xxl-7">
-                    <!-- Header profile picture-->
-                    <div class="d-flex justify-content-center mt-5 mt-xxl-0">
-                        <div class="profile bg-gradient-primary-to-secondary">
-                            <img class="profile-img" src="assets/profile.jpeg" alt="Sanjay Shah Profile Picture" />
-                            <!-- Optional SVG dot decorations -->
-                        </div>
-                    </div>
-                </div>
-            </div>
+  <main id="main-content" tabindex="-1">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="hero-text">
+        <p class="eyebrow">Senior Software Engineer · Java · Cloud · Identity</p>
+        <h1 id="hero-title">Building secure, scalable, high-performance systems.</h1>
+        <p class="lead">Six years designing and delivering backend platforms, identity and access management, and multi-tenant SaaS — from architecture through production.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="#work">Selected work</a>
+          <a class="btn btn-ghost" href="#contact">Get in touch</a>
         </div>
-    </header>
-
-    <!-- About Section-->
-    <section class="bg-light py-5">
-        <div class="container px-5">
-            <div class="row gx-5 justify-content-center">
-                <div class="col-xxl-8">
-                    <div class="text-center my-5">
-                        <h2 class="display-5 fw-bolder"><span class="text-gradient d-inline">About Me</span></h2>
-                        <p class="lead fw-light mb-4">
-                            Senior Software Engineer with 6 years of experience designing, developing, and delivering secure, scalable, and high-performance applications.
-                        </p>
-                        <p class="text-muted">
-                            Expertise in Java, Spring Boot, microservices, cloud-native architectures (AWS), and full-stack development (React, TypeScript). Strong background in Identity and Access Management (Okta, Auth0, OAuth2, OIDC, SCIM, SAML) with proven ability to mentor engineers and lead projects. Passionate about building resilient and user-friendly solutions that drive business success.
-                        </p>
-                        <div class="d-flex justify-content-center fs-2 gap-4">
-                            <a class="text-gradient" href="https://www.credly.com/users/sanjay-shah.861076ff/badges#credly" target="_blank">
-                                <i class="bi bi-award"></i>
-                            </a>
-                            <a class="text-gradient" href="https://www.linkedin.com/in/sanjayshah" target="_blank"><i class="bi bi-linkedin"></i></a>
-                            <a class="text-gradient" href="https://github.com/mesanjayshah" target="_blank"><i class="bi bi-github"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+      </div>
+      <img class="portrait" src="assets/profile.jpeg" alt="Portrait of Sanjay Shah" width="320" height="320" fetchpriority="high">
     </section>
-</main>
 
-<!-- Footer-->
-<footer class="bg-white py-4 mt-auto">
-    <div class="container px-5">
-        <div class="row align-items-center justify-content-between flex-column flex-sm-row">
-            <div class="col-auto"><div class="small m-0">Copyright &copy; Sanjay Shah <script>document.write(new Date().getFullYear())</script></div></div>
-            <div class="col-auto">
-                <a class="small" href="#!">Privacy</a>
-                <span class="mx-1">&middot;</span>
-                <a class="small" href="#!">Terms</a>
-                <span class="mx-1">&middot;</span>
-                <a class="small" href="#!">Contact</a>
-            </div>
+    <section class="section reveal" id="about" aria-labelledby="about-title">
+      <h2 id="about-title">About</h2>
+      <div class="prose">
+        <p>I design, build and operate secure, scalable applications — mostly on the JVM. My core strengths are Java and Spring Boot, microservice and REST API design, and cloud-native delivery on AWS, with full-stack work in React and TypeScript when the product needs it.</p>
+        <p>A large part of my recent work is identity and access management: OAuth2 and OIDC flows, SAML federation, SCIM provisioning and large-scale identity migrations for enterprise customers. Earlier, I built and modernised multi-tenant SaaS ERP modules for the education sector. I enjoy mentoring engineers, raising secure-coding standards and turning legacy systems into maintainable ones.</p>
+      </div>
+    </section>
+
+    <section class="section reveal" id="skills" aria-labelledby="skills-title">
+      <h2 id="skills-title">Skills</h2>
+      <div class="skill-grid">
+        <div class="skill-group">
+          <h3>Backend</h3>
+          <ul class="chips">
+            <li>Java 8+</li><li>Spring Boot</li><li>Hibernate / JPA</li><li>J2EE</li><li>Microservices</li><li>REST API design</li><li>Multithreading</li><li>OOP &amp; design patterns</li><li>Thymeleaf / JSP</li><li>RabbitMQ</li><li>AWS SQS / SNS</li><li>Maven / Gradle</li>
+          </ul>
         </div>
-    </div>
-</footer>
+        <div class="skill-group">
+          <h3>Frontend</h3>
+          <ul class="chips">
+            <li>React</li><li>TypeScript</li><li>JavaScript</li><li>HTML &amp; CSS</li><li>Bootstrap</li><li>jQuery</li><li>UI/UX collaboration</li><li>Accessibility</li>
+          </ul>
+        </div>
+        <div class="skill-group">
+          <h3>Cloud &amp; DevOps</h3>
+          <ul class="chips">
+            <li>AWS EC2</li><li>AWS S3</li><li>AWS Lambda</li><li>API Gateway</li><li>Docker</li><li>Kubernetes (basic)</li><li>Jenkins</li><li>CI/CD</li><li>Git</li>
+          </ul>
+        </div>
+        <div class="skill-group">
+          <h3>Data</h3>
+          <ul class="chips">
+            <li>PostgreSQL</li><li>MySQL</li><li>MongoDB</li><li>DynamoDB</li><li>Multi-tenant data models</li>
+          </ul>
+        </div>
+        <div class="skill-group">
+          <h3>Security &amp; Compliance</h3>
+          <ul class="chips">
+            <li>OAuth2</li><li>OpenID Connect</li><li>SAML</li><li>SCIM</li><li>LDAP</li><li>JWT</li><li>SSO &amp; federation</li><li>Okta</li><li>Auth0</li><li>Keycloak</li><li>Static analysis (Checkmarx, SonarQube)</li><li>Secure coding practices</li>
+          </ul>
+        </div>
+        <div class="skill-group">
+          <h3>AI-assisted Engineering</h3>
+          <!-- TODO: not present in the previous site content. Add the actual tools and practices used (e.g. AI coding assistants, agentic workflows, prompt/eval discipline) before publishing — do not leave this placeholder. -->
+          <ul class="chips">
+            <li>TODO — add tools and practices</li>
+          </ul>
+        </div>
+      </div>
+      <h3 class="sub">Certifications</h3>
+      <ul class="plain-list">
+        <li>Okta Certified Developer (CIC) · 2024</li>
+        <li>Okta Certified Consultant · 2023</li>
+        <li>Okta Certified Developer (WIC) · 2023</li>
+        <li>Web Security &amp; Access Management (JWT, OAuth2, OIDC) · 2022</li>
+      </ul>
+    </section>
 
-<!-- Bootstrap core JS-->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-<!-- Core theme JS-->
-<script src="js/scripts.js"></script>
+    <section class="section reveal" id="work" aria-labelledby="work-title">
+      <h2 id="work-title">Selected work</h2>
+      <p class="section-intro">Problem, stack, outcome. Described by domain — not by customer.</p>
+      <div class="card-grid">
+        <article class="card">
+          <h3>Enterprise identity federation &amp; SSO</h3>
+          <p class="problem">Enterprise customers in sports media and banking needed a single identity layer across many applications and identity providers.</p>
+          <p class="stack"><span class="label">Stack</span> Okta, Auth0, Spring Boot, OIDC, SAML, OAuth2</p>
+          <p class="outcome"><span class="label">Outcome</span> Federated SSO with standards-based authentication across tenants, replacing bespoke per-app login.</p>
+        </article>
+        <article class="card">
+          <h3>SCIM connectors &amp; bulk identity migration</h3>
+          <p class="problem">Thousands of identities had to move from a self-hosted identity provider to a cloud IdP without data loss or onboarding delays.</p>
+          <p class="stack"><span class="label">Stack</span> Java, SCIM 2.0, Keycloak → Okta, REST</p>
+          <p class="outcome"><span class="label">Outcome</span> Custom SCIM connectors and a bulk migration tool cut onboarding time and kept the migration secure and auditable.</p>
+        </article>
+        <article class="card">
+          <h3>Legacy IAM connector modernisation</h3>
+          <p class="problem">Ageing identity connectors were slow to change and had no automated security scanning.</p>
+          <p class="stack"><span class="label">Stack</span> Java, Spring Boot, Checkmarx, CI/CD</p>
+          <p class="outcome"><span class="label">Outcome</span> Faster, more maintainable connectors with static analysis enforcing secure coding in the pipeline.</p>
+        </article>
+        <article class="card">
+          <h3>Multi-tenant education ERP (SaaS)</h3>
+          <p class="problem">Institutions needed HR &amp; payroll, CRM, CMS and online examination on one tenant-isolated platform.</p>
+          <p class="stack"><span class="label">Stack</span> Spring Boot, React, PostgreSQL, Thymeleaf, Docker on AWS EC2</p>
+          <p class="outcome"><span class="label">Outcome</span> Re-architected CRM, 25%+ performance gains, monolith split into modules, and smoother institutional onboarding through stronger multi-tenancy.</p>
+        </article>
+        <article class="card">
+          <h3>Pre-sales service estimation tool</h3>
+          <p class="problem">Engineering estimates for enterprise deployments were inconsistent and slow to produce.</p>
+          <p class="stack"><span class="label">Stack</span> Java, Spring Boot, React</p>
+          <p class="outcome"><span class="label">Outcome</span> More accurate estimates and shorter enterprise deployment cycles.</p>
+        </article>
+        <article class="card">
+          <h3>E-commerce web application</h3>
+          <p class="problem">A full-stack storefront with secure accounts, catalogue, cart and payments.</p>
+          <p class="stack"><span class="label">Stack</span> Spring Boot, JSP, MySQL</p>
+          <p class="outcome"><span class="label">Outcome</span> End-to-end purchase flow with authenticated users and integrated payment.</p>
+        </article>
+        <article class="card">
+          <h3>Inventory management system</h3>
+          <p class="problem">Stock levels drifted and shortages were noticed too late.</p>
+          <p class="stack"><span class="label">Stack</span> Java, MySQL, role-based access control</p>
+          <p class="outcome"><span class="label">Outcome</span> Real-time stock tracking, automated alerts and reporting with per-role access.</p>
+        </article>
+        <article class="card">
+          <h3>Secured REST API platform</h3>
+          <p class="problem">Application data needed a documented, access-controlled API surface.</p>
+          <p class="stack"><span class="label">Stack</span> Spring Boot, JPA, JWT, Swagger / OpenAPI</p>
+          <p class="outcome"><span class="label">Outcome</span> Documented, token-secured APIs ready for frontend and partner consumption.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section reveal" id="experience" aria-labelledby="experience-title">
+      <h2 id="experience-title">Experience</h2>
+      <!-- Employer names intentionally omitted; roles described by domain. -->
+      <!-- TODO: assets/resume.pdf still contains employer and client names. Regenerate it without them before linking it more prominently. -->
+      <ol class="timeline">
+        <li>
+          <p class="period">Aug 2022 — present</p>
+          <h3>Senior Software Engineer · Identity &amp; access management</h3>
+          <p>Lead developer on IAM solutions for enterprise customers in the US and Europe: identity federation, SSO, OIDC and SAML authentication, SCIM provisioning and bulk identity migrations. Modernised legacy connectors, introduced static code analysis, and mentor engineers on IAM standards and secure coding.</p>
+        </li>
+        <li>
+          <p class="period">Aug 2019 — Feb 2022</p>
+          <h3>Full Stack Software Developer · Multi-tenant SaaS ERP</h3>
+          <p>Built and re-architected education ERP modules (HR &amp; payroll, CRM, CMS, online examination) with Spring Boot, React and PostgreSQL. Migrated a monolith to a modular build, containerised with Docker on AWS EC2, and strengthened multi-tenancy and UX across the platform.</p>
+        </li>
+      </ol>
+      <h3 class="sub">Education</h3>
+      <ul class="plain-list">
+        <li>Master of Computer Science — in progress</li>
+        <li>Bachelor of Computer Science — 2015–2019</li>
+      </ul>
+      <p class="muted small">A full CV is available on request. <a href="assets/resume.pdf">PDF version</a>.</p>
+    </section>
+
+    <section class="section reveal" id="contact" aria-labelledby="contact-title">
+      <h2 id="contact-title">Contact</h2>
+      <p class="section-intro">Open to senior backend, identity and platform engineering work. The quickest way to reach me is email.</p>
+      <!-- TODO: the old site posted a contact form to Formspree (form id mldwagrd). Dropped to keep the CSP self-only; re-add with form-action https://formspree.io if a form is wanted. -->
+      <ul class="contact-list">
+        <li><a href="mailto:messanjayshah@gmail.com">messanjayshah@gmail.com</a></li>
+        <li><a href="tel:+9779863274892">+977 986 327 4892</a></li>
+        <!-- TODO: old pages used two LinkedIn URLs (/in/sanjayshah and /in/mesanjay/). Confirm which is correct. -->
+        <li><a href="https://www.linkedin.com/in/mesanjay/" rel="noopener noreferrer" target="_blank">LinkedIn</a></li>
+        <li><a href="https://github.com/mesanjayshah" rel="noopener noreferrer" target="_blank">GitHub</a></li>
+        <li><a href="https://www.credly.com/users/sanjay-shah.861076ff/badges" rel="noopener noreferrer" target="_blank">Credly badges</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© <span id="year">2026</span> Sanjay Shah · Kathmandu, Nepal</p>
+    <p class="muted small">Plain HTML and CSS. No trackers.</p>
+  </footer>
 </body>
 </html>
