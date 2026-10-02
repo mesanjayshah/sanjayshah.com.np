@@ -3,16 +3,16 @@
 <style>
 @page { size: A4; margin: 13mm 15mm; }
 * { box-sizing: border-box; margin: 0; padding: 0; }
-body { font: 9.6pt/1.4 -apple-system, "Helvetica Neue", Arial, sans-serif; color: #16181c; }
-header { border-bottom: 2px solid #3f6d00; padding-bottom: 6pt; margin-bottom: 8pt; }
+body { font: 9.8pt/1.42 -apple-system, "Helvetica Neue", Arial, sans-serif; color: #16181c; }
+header { border-bottom: 2px solid #2d6a0f; padding-bottom: 6pt; margin-bottom: 8pt; }
 h1 { font-size: 19pt; letter-spacing: .01em; }
-.role { color: #3f6d00; font-weight: 600; font-size: 10.5pt; margin-top: 1pt; }
+.role { color: #2d6a0f; font-weight: 600; font-size: 10.5pt; margin-top: 1pt; }
 .contact { color: #4b5260; font-size: 8.6pt; margin-top: 3pt; }
 .contact a { color: inherit; text-decoration: none; }
-h2 { font-size: 10pt; text-transform: uppercase; letter-spacing: .08em; color: #3f6d00; margin: 10pt 0 4pt; }
+h2 { font-size: 10pt; text-transform: uppercase; letter-spacing: .08em; color: #2d6a0f; margin: 10pt 0 4pt; }
 p { margin-bottom: 4pt; }
 .values { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6pt; margin: 2pt 0 2pt; }
-.values div { border: 1px solid #ddd9cf; border-top: 2px solid #3f6d00; border-radius: 3pt; padding: 4pt 6pt; font-size: 8.5pt; line-height: 1.35; }
+.values div { border: 1px solid #ddd9cf; border-top: 2px solid #2d6a0f; border-radius: 3pt; padding: 4pt 6pt; font-size: 8.5pt; line-height: 1.35; }
 .values b { display: block; font-size: 9pt; margin-bottom: 1pt; }
 .job { margin-bottom: 7pt; }
 .job-head, .domain { break-after: avoid; }
@@ -26,7 +26,7 @@ li { margin-bottom: 1.6pt; }
 .skills { display: grid; grid-template-columns: 9em 1fr; gap: 1.5pt 8pt; }
 .skills dt { font-weight: 600; }
 .two { display: grid; grid-template-columns: 1fr 1fr; gap: 0 14pt; }
-.note { color: #4b5260; font-size: 8.4pt; }
+.note { color: #4b5260; font-size: 8.4pt; margin-top: 6pt; }
 </style></head>
 <body>
 <header>
@@ -53,9 +53,9 @@ li { margin-bottom: 1.6pt; }
     <li><b>Tenant isolation:</b> PostgreSQL row-level security (FORCE RLS, two-role owner/app model), Hibernate tenant and soft-delete filters enabled by aspect, by-id loads that answer 404 on tenant mismatch so existence never leaks.</li>
     <li><b>Event-driven integration:</b> transactional outbox → polling relay → Kafka → idempotent consumers; absolute values on the wire; one authority per fact with projections keyed by the owner's id.</li>
     <li><b>Protected data &amp; regulatory engines:</b> field-level encryption (randomised AES-GCM; deterministic where columns must stay indexable), PHI access logging, hash-chained financial audit trail, annotation-driven compliance traceability with versioned statutory thresholds; integrations with national health reporting (DHIS2), tax-authority e-invoicing and health-insurance claims.</li>
-    <li><b>Delivery &amp; AppSec:</b> GitHub Actions → Helm → Argo CD on k3s in AWS, Terraform infrastructure; a shared shift-left security workflow every service inherits — Semgrep with 23 custom rules, Trivy SCA and licence policy, gitleaks, Checkov, Kubescape, CycloneDX SBOM, Cosign-signed images, ZAP pre-release.</li>
+    <li><b>Delivery &amp; AppSec:</b> GitHub Actions → Helm → Argo CD on k3s in AWS, Terraform infrastructure; a shared shift-left security workflow every service inherits — Semgrep with custom rules, Trivy SCA and licence policy, gitleaks, Checkov, Kubescape, CycloneDX SBOM, Cosign-signed images, ZAP pre-release.</li>
     <li><b>Quality as a gate:</b> Playwright end-to-end spec mandatory for every form (incl. tampered POST and cross-tenant id → 404), ArchUnit rules for layering and tenant-scoped loads, JUnit 5 + Mockito, Testcontainers integration tests.</li>
-    <li><b>AI-assisted engineering:</b> wrote the engineering rules and tiered memory that steer coding agents in the codebase; multi-agent audits; token-discipline skills. Working daily in a ~700k-line Java codebase: 10 services, 10 shared libraries, 811 migrations, 851 RLS policies, 583 E2E specs, 18 CI/CD workflows.</li>
+    <li><b>AI-assisted engineering:</b> agent guidance kept in the repository, multi-agent audits, token-discipline skills; agent-written changes verified by the build, the E2E suite and a live browser.</li>
   </ul>
 </div>
 <div class="job">
@@ -83,14 +83,14 @@ li { margin-bottom: 1.6pt; }
 <h2>Skills</h2>
 <dl class="skills">
   <dt>Languages</dt><dd>Java 8 → 25 (records, sealed types, virtual threads), SQL, TypeScript, JavaScript</dd>
-  <dt>Frameworks</dt><dd>Spring Boot 4, Spring Security, Hibernate/JPA, React, Thymeleaf, Tailwind CSS, HTMX, Alpine.js</dd>
+  <dt>Frameworks</dt><dd>Spring Boot, Spring Security, Hibernate/JPA, React, Thymeleaf, Tailwind CSS, HTMX, Alpine.js</dd>
   <dt>Architecture</dt><dd>Microservices &amp; service extraction, multi-tenancy, event-driven (Kafka, transactional outbox, idempotent consumers), REST, mobile BFF</dd>
   <dt>Data</dt><dd>PostgreSQL (row-level security, two-role model), Flyway, Redis, Testcontainers, MySQL, MongoDB</dd>
   <dt>Cloud &amp; DevOps</dt><dd>AWS (EC2, RDS, ECR, S3, CloudFront, SSM), Docker, Kubernetes (k3s), Helm, Argo CD (GitOps), Terraform/OpenTofu, GitHub Actions, Jenkins, Prometheus/CloudWatch</dd>
   <dt>IAM &amp; Security</dt><dd>OAuth 2.0, OIDC, SAML 2.0, SCIM 2.0, JWT, LDAP, Okta, Auth0, Keycloak, field-level encryption, PII/PHI handling</dd>
   <dt>DevSecOps</dt><dd>Semgrep (custom rules), Trivy, gitleaks, Checkov, Kubescape, Cosign, CycloneDX SBOM, OWASP ZAP, Checkmarx, SonarQube</dd>
   <dt>Testing</dt><dd>Playwright (E2E), JUnit 5, Mockito, Testcontainers, ArchUnit, MockMvc</dd>
-  <dt>AI-assisted</dt><dd>Claude Code, MCP servers, multi-agent workflows, rule files and tiered memory for agents, token-discipline skills, agent-written tests verified in a live browser</dd>
+  <dt>AI-assisted</dt><dd>Claude Code, MCP servers, multi-agent workflows, agent guidance in the repo, token-discipline skills, agent-written tests verified in a live browser</dd>
 </dl>
 
 <div class="two">
@@ -111,5 +111,5 @@ li { margin-bottom: 1.6pt; }
     </ul>
   </div>
 </div>
-<p class="note" style="margin-top:6pt">Employers and clients are described by domain. Codebase figures are counted from the repository, October 2026.</p>
+<p class="note">Employers and clients are described by domain.</p>
 </body></html>
