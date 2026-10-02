@@ -94,7 +94,7 @@ h2 { font-size: clamp(1.75rem, 3.2vw, 2.4rem); max-width: 26ch; }
 
 /* ---------- hero ---------- */
 .hero { max-width: var(--maxw); margin: 0 auto; padding: clamp(36px, 5.5vw, 64px) var(--gutter) clamp(36px, 5vw, 56px); }
-.hero-grid { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(320px, 0.75fr); gap: clamp(28px, 5vw, 72px); align-items: center; }
+.hero-grid { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(360px, 0.9fr); gap: clamp(28px, 5vw, 72px); align-items: center; }
 .hero-values { list-style: none; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; max-width: 34rem; margin: 0 0 28px; }
 .hero-values li { display: flex; align-items: center; gap: 10px; padding: 12px 14px; border: 1px solid var(--line); border-radius: 12px; background: var(--bg-2); font-weight: 600; font-size: 0.95rem; }
 .hero-values svg { flex: none; color: var(--accent); }
