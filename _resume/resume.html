@@ -36,27 +36,24 @@ li { margin-bottom: 1.6pt; }
 </header>
 
 <h2>Professional Summary</h2>
-<p>Senior Software Engineer, seven years, who takes on the hard platform problems — identity, money, patient data — and delivers working, verified solutions. Secure by construction and compliant by design: tenant isolation that fails closed, encrypted protected fields, versioned statutory thresholds and tamper-evident audit trails, enforced by a shift-left security pipeline rather than by review alone. Early but deliberate on the tools that earn it: Java 25 with virtual threads, Spring Boot 4, Kafka with a transactional outbox, Kubernetes with Helm and Argo CD, Terraform, Playwright, Semgrep and Trivy, and AI-assisted engineering with Claude Code, MCP servers and multi-agent workflows. Domains: a multi-tenant hospital &amp; enterprise ERP platform being extracted from a monolith into services; identity and access management for enterprise clients in the US and Europe (OIDC, SAML, SCIM, Okta, Keycloak); a multi-tenant education SaaS ERP.</p>
-<p><b>Always current:</b> Java 25 · Spring Boot 4 · Kafka · PostgreSQL RLS · Kubernetes + Argo CD · Terraform/OpenTofu · Playwright · Semgrep/Trivy · Claude Code + MCP · multi-agent workflows</p>
+<p>Senior Software Engineer who solves hard backend problems and delivers — secure, compliant, built to last. Seven years across healthcare platforms, identity and access management, and multi-tenant SaaS. Security is built in from day one (data isolated per customer, sensitive fields encrypted, every change scanned before it ships); regulation is treated as a requirement (versioned rules, tamper-evident audit trails, access to health data logged); and new tools are adopted early but deliberately — Java 25 with virtual threads, Spring Boot 4, Kafka, Kubernetes with Argo CD, Terraform, Playwright, Semgrep and Trivy, and AI-assisted engineering with Claude Code, MCP servers and multi-agent workflows.</p>
+<p><b>At a glance:</b> seeking senior backend, platform or security-minded engineering roles · core stack Java 25, Spring Boot, Kafka, PostgreSQL, Kubernetes, Terraform · domains healthcare platforms, identity &amp; access, multi-tenant SaaS · Kathmandu, Nepal, remote OK · four verified certifications (Credly).</p>
+<p><b>Patterns solved:</b> (1) Tenant isolation that fails closed — the database refuses cross-tenant reads, so a wrong tenant gets 404 even if application code is wrong (independent build; education SaaS). (2) Identity federation and zero-downtime migration — several identity providers behind one sign-on layer; users moved to a cloud provider over SCIM with no re-onboarding (IAM role). (3) Reliable event-driven integration — transactional outbox to Kafka to idempotent consumers; duplicates absorbed, order preserved (independent build).</p>
 <div class="values">
-  <div><b>1 · Deliver the solution</b>Own the problem end to end; done means verified through the real path — E2E spec, boot test, live browser.</div>
-  <div><b>2 · Security</b>OIDC front door, tenant isolation that fails closed, encrypted protected fields, SAST/SCA/secrets/IaC gates, signed images.</div>
-  <div><b>3 · Compliance</b>Versioned statutory thresholds, clause-cited annotations, hash-chained financial audit trail, PHI access logging.</div>
-  <div><b>4 · Future-proof</b>Newest tools early but deliberately — Java 25, virtual threads, GitOps, AI agents, shift-left security — on designs that survive replay and retry.</div>
+  <div><b>1 · Deliver the solution</b>Own the problem end to end and ship a working, verified result — not just code.</div>
+  <div><b>2 · Security</b>Built in from day one: data isolated per customer, sensitive fields encrypted, every change scanned before it ships.</div>
+  <div><b>3 · Compliance</b>Regulation treated as a requirement: rules versioned, audit trails tamper-evident, access to health data logged.</div>
+  <div><b>4 · Future-proof</b>New tools adopted early but deliberately — Java 25, GitOps, AI coding agents — on designs that survive retries and replays.</div>
 </div>
 
 <h2>Work Experience</h2>
 <div class="job">
   <div class="job-head"><h3>Senior Software Engineer</h3><span>Nov 2025 – Present</span></div>
-  <div class="domain">Multi-tenant hospital &amp; enterprise ERP platform (OPD/IPD, lab, radiology, pharmacy, billing, HR &amp; payroll, accounting, inventory, recruitment, CRM)</div>
+  <div class="domain">Healthcare software</div>
   <ul>
-    <li><b>Service extraction standard:</b> co-authored and enforce the rules a service must meet to count as extracted — own database and Flyway chain, tenant propagated explicitly over HTTP and Kafka record headers and failing closed when absent, consumers idempotent by unique constraint, blocking bounded retry into a dead-letter topic.</li>
-    <li><b>Tenant isolation:</b> PostgreSQL row-level security (FORCE RLS, two-role owner/app model), Hibernate tenant and soft-delete filters enabled by aspect, by-id loads that answer 404 on tenant mismatch so existence never leaks.</li>
-    <li><b>Event-driven integration:</b> transactional outbox → polling relay → Kafka → idempotent consumers; absolute values on the wire; one authority per fact with projections keyed by the owner's id.</li>
-    <li><b>Protected data &amp; regulatory engines:</b> field-level encryption (randomised AES-GCM; deterministic where columns must stay indexable), PHI access logging, hash-chained financial audit trail, annotation-driven compliance traceability with versioned statutory thresholds; integrations with national health reporting (DHIS2), tax-authority e-invoicing and health-insurance claims.</li>
-    <li><b>Delivery &amp; AppSec:</b> GitHub Actions → Helm → Argo CD on k3s in AWS, Terraform infrastructure; a shared shift-left security workflow every service inherits — Semgrep with custom rules, Trivy SCA and licence policy, gitleaks, Checkov, Kubescape, CycloneDX SBOM, Cosign-signed images, ZAP pre-release.</li>
-    <li><b>Quality as a gate:</b> Playwright end-to-end spec mandatory for every form (incl. tampered POST and cross-tenant id → 404), ArchUnit rules for layering and tenant-scoped loads, JUnit 5 + Mockito, Testcontainers integration tests.</li>
-    <li><b>AI-assisted engineering:</b> agent guidance kept in the repository, multi-agent audits, token-discipline skills; agent-written changes verified by the build, the E2E suite and a live browser.</li>
+    <li>Builds and enhances healthcare systems on Java and Spring Boot with cloud-native services, with an emphasis on reliability.</li>
+    <li>Applies secure-coding and data-protection practices to the handling of sensitive patient information.</li>
+    <li>Uses AI-assisted engineering workflows for development, code review and testing.</li>
   </ul>
 </div>
 <div class="job">
@@ -81,11 +78,24 @@ li { margin-bottom: 1.6pt; }
   </ul>
 </div>
 
+<h2>Independent Project</h2>
+<div class="job">
+  <div class="job-head"><h3>Multi-tenant healthcare &amp; enterprise ERP platform — designed and built independently</h3><span>Ongoing</span></div>
+  <div class="domain">Personal project; no name, repository or customers disclosed by design</div>
+  <ul>
+    <li>Monolith being extracted into services on Java 25 (virtual threads) and Spring Boot 4; Kafka with a transactional outbox and idempotent consumers; absolute values on the wire.</li>
+    <li>Customer isolation enforced by PostgreSQL row-level security with a two-role model; cross-tenant lookups answer 404; field-level encryption, PHI access logging, hash-chained financial audit trail.</li>
+    <li>GitOps on Kubernetes with Helm and Argo CD, Terraform infrastructure; shift-left security pipeline every service inherits (Semgrep, Trivy, gitleaks, Checkov, Cosign, SBOM); Playwright end-to-end gate for every form; ArchUnit rules that fail the build.</li>
+    <li>AI-assisted multi-agent development with Claude Code and MCP servers; engineering rules kept in the repository; agent work verified by the build, the E2E suite and a live browser.</li>
+  </ul>
+</div>
+<p class="note">Public reference demos on <a href="https://github.com/mesanjayshah">github.com/mesanjayshah</a>: database-per-tenant multi-tenancy, OIDC and SAML single sign-on with Okta, Okta-hosted login (authorization-code flow), a patient microservice with CI and Docker, RabbitMQ messaging.</p>
+
 <h2>Skills</h2>
 <dl class="skills">
   <dt>Languages</dt><dd>Java 8 → 25 (records, sealed types, virtual threads), SQL, TypeScript, JavaScript</dd>
   <dt>Frameworks</dt><dd>Spring Boot, Spring Security, Hibernate/JPA, React, Thymeleaf, Tailwind CSS, HTMX, Alpine.js</dd>
-  <dt>Architecture</dt><dd>Microservices &amp; service extraction, multi-tenancy, event-driven (Kafka, transactional outbox, idempotent consumers), REST, mobile BFF</dd>
+  <dt>Architecture</dt><dd>Microservices &amp; service extraction, multi-tenancy, event-driven (Kafka, transactional outbox, idempotent consumers), REST</dd>
   <dt>Data</dt><dd>PostgreSQL (row-level security, two-role model), Flyway, Redis, Testcontainers, MySQL, MongoDB</dd>
   <dt>Cloud &amp; DevOps</dt><dd>AWS (EC2, RDS, ECR, S3, CloudFront, SSM), Docker, Kubernetes (k3s), Helm, Argo CD (GitOps), Terraform/OpenTofu, GitHub Actions, Jenkins, Prometheus/CloudWatch</dd>
   <dt>IAM &amp; Security</dt><dd>OAuth 2.0, OIDC, SAML 2.0, SCIM 2.0, JWT, LDAP, Okta, Auth0, Keycloak, field-level encryption, PII/PHI handling</dd>

@@ -12,7 +12,7 @@
     toggle.setAttribute("aria-pressed", String(dark));
     toggle.setAttribute("aria-label", dark ? "Switch to light theme" : "Switch to dark theme");
     var meta = document.querySelector('meta[name="theme-color"]');
-    if (meta) meta.setAttribute("content", dark ? "#0b0d10" : "#f6f5f0");
+    if (meta) meta.setAttribute("content", dark ? "#0b0d10" : "#f4f1e8");
     try { localStorage.setItem("theme", t); } catch (e) { /* ignore */ }
     if (field) field.recolor();
   }
@@ -40,13 +40,11 @@
   var navLinks = Array.prototype.slice.call(document.querySelectorAll(".nav-links a"));
   var sections = navLinks.map(function (a) { return document.querySelector(a.getAttribute("href")); }).filter(Boolean);
   if ("IntersectionObserver" in window && sections.length) {
-    var current = null;
     var navIo = new IntersectionObserver(function (entries) {
       entries.forEach(function (en) {
         if (en.isIntersecting) {
-          current = en.target.id;
           navLinks.forEach(function (a) {
-            if (a.getAttribute("href") === "#" + current) a.setAttribute("aria-current", "true");
+            if (a.getAttribute("href") === "#" + en.target.id) a.setAttribute("aria-current", "true");
             else a.removeAttribute("aria-current");
           });
         }
@@ -62,10 +60,8 @@
     var ctx = canvas.getContext("2d");
     var pts = [], w = 0, h = 0, dpr = 1, raf = 0, color = "#c6f256", linkColor = "#8fd3ff";
     var COUNT = 70, LINK = 150;
-
     function css(name) { return getComputedStyle(root).getPropertyValue(name).trim(); }
     function recolor() { color = css("--accent") || color; linkColor = css("--accent-2") || linkColor; if (reduceMotion) draw(); }
-
     function size() {
       dpr = Math.min(window.devicePixelRatio || 1, 2);
       w = canvas.clientWidth; h = canvas.clientHeight;
@@ -73,96 +69,49 @@
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       var n = Math.round(COUNT * Math.min(1, w / 1200));
       pts = [];
-      for (var i = 0; i < n; i++) {
-        pts.push({ x: Math.random() * w, y: Math.random() * h, vx: (Math.random() - 0.5) * 0.18, vy: (Math.random() - 0.5) * 0.18, r: 1 + Math.random() * 1.4 });
-      }
+      for (var i = 0; i < n; i++) pts.push({ x: Math.random() * w, y: Math.random() * h, vx: (Math.random() - 0.5) * 0.18, vy: (Math.random() - 0.5) * 0.18, r: 1 + Math.random() * 1.4 });
     }
     function step() {
       for (var i = 0; i < pts.length; i++) {
-        var p = pts[i];
-        p.x += p.vx; p.y += p.vy;
+        var p = pts[i]; p.x += p.vx; p.y += p.vy;
         if (p.x < -10) p.x = w + 10; else if (p.x > w + 10) p.x = -10;
         if (p.y < -10) p.y = h + 10; else if (p.y > h + 10) p.y = -10;
       }
     }
     function draw() {
-      ctx.clearRect(0, 0, w, h);
-      ctx.lineWidth = 1;
+      ctx.clearRect(0, 0, w, h); ctx.lineWidth = 1;
       for (var i = 0; i < pts.length; i++) {
         var a = pts[i];
         for (var j = i + 1; j < pts.length; j++) {
-          var b = pts[j];
-          var dx = a.x - b.x, dy = a.y - b.y, d = dx * dx + dy * dy;
-          if (d < LINK * LINK) {
-            var al = 1 - Math.sqrt(d) / LINK;
-            ctx.strokeStyle = linkColor;
-            ctx.globalAlpha = al * 0.22;
-            ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke();
-          }
+          var b = pts[j], dx = a.x - b.x, dy = a.y - b.y, d = dx * dx + dy * dy;
+          if (d < LINK * LINK) { ctx.strokeStyle = linkColor; ctx.globalAlpha = (1 - Math.sqrt(d) / LINK) * 0.22; ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke(); }
         }
       }
       ctx.fillStyle = color;
-      for (var k = 0; k < pts.length; k++) {
-        ctx.globalAlpha = 0.55;
-        ctx.beginPath(); ctx.arc(pts[k].x, pts[k].y, pts[k].r, 0, Math.PI * 2); ctx.fill();
-      }
+      for (var k = 0; k < pts.length; k++) { ctx.globalAlpha = 0.55; ctx.beginPath(); ctx.arc(pts[k].x, pts[k].y, pts[k].r, 0, Math.PI * 2); ctx.fill(); }
       ctx.globalAlpha = 1;
     }
     function loop() { step(); draw(); raf = requestAnimationFrame(loop); }
     function start() { if (!raf && !reduceMotion && !document.hidden) raf = requestAnimationFrame(loop); }
     function stop() { if (raf) { cancelAnimationFrame(raf); raf = 0; } }
-
     size(); recolor(); draw();
-    if (reduceMotion) { /* static composition only */ } else { start(); }
+    if (!reduceMotion) start();
     var rt;
     window.addEventListener("resize", function () { clearTimeout(rt); rt = setTimeout(function () { size(); draw(); }, 120); });
     document.addEventListener("visibilitychange", function () { document.hidden ? stop() : start(); });
     return { recolor: recolor };
   })();
 
-  /* ---------- Architecture diagram ---------- */
-  (function () {
-    var svg = document.querySelector(".arch-svg");
-    var tpl = document.getElementById("arch-copy");
-    if (!svg || !tpl) return;
-    var nodes = Array.prototype.slice.call(svg.querySelectorAll(".node"));
-    var kicker = document.getElementById("arch-panel-kicker");
-    var title = document.getElementById("arch-panel-title");
-    var text = document.getElementById("arch-panel-text");
-    var copy = {};
-    Array.prototype.forEach.call(tpl.content.querySelectorAll("[data-key]"), function (d) {
-      copy[d.getAttribute("data-key")] = { kicker: d.getAttribute("data-kicker"), title: d.getAttribute("data-title"), text: d.textContent.trim() };
+  /* ---------- Carousels: arrow keys scroll by one card ---------- */
+  Array.prototype.forEach.call(document.querySelectorAll(".carousel"), function (c) {
+    c.addEventListener("keydown", function (e) {
+      if (e.key !== "ArrowRight" && e.key !== "ArrowLeft") return;
+      var card = c.firstElementChild; if (!card) return;
+      var w = card.getBoundingClientRect().width + 12;
+      c.scrollBy({ left: e.key === "ArrowRight" ? w : -w, behavior: reduceMotion ? "auto" : "smooth" });
+      e.preventDefault();
     });
-    var active = null;
-    function show(node) {
-      var c = copy[node.getAttribute("data-key")];
-      if (!c) return;
-      nodes.forEach(function (n) { n.classList.toggle("active", n === node); });
-      active = node;
-      kicker.textContent = c.kicker; title.textContent = c.title; text.textContent = c.text;
-    }
-    nodes.forEach(function (n) {
-      n.addEventListener("mouseenter", function () { show(n); });
-      n.addEventListener("focus", function () { show(n); });
-      n.addEventListener("click", function () { show(n); n.focus(); });
-      n.addEventListener("keydown", function (e) {
-        var i = nodes.indexOf(n), next = null;
-        if (e.key === "ArrowRight" || e.key === "ArrowDown") next = nodes[(i + 1) % nodes.length];
-        else if (e.key === "ArrowLeft" || e.key === "ArrowUp") next = nodes[(i - 1 + nodes.length) % nodes.length];
-        else if (e.key === "Home") next = nodes[0];
-        else if (e.key === "End") next = nodes[nodes.length - 1];
-        else if (e.key === "Enter" || e.key === " ") { e.preventDefault(); show(n); return; }
-        if (next) { e.preventDefault(); next.focus(); }
-      });
-    });
-    // Walk the request path once on first view so the panel isn't empty for long.
-    if (!reduceMotion && "IntersectionObserver" in window) {
-      var once = new IntersectionObserver(function (en) {
-        if (en[0].isIntersecting) { once.disconnect(); if (!active) show(nodes[3]); }
-      }, { threshold: 0.4 });
-      once.observe(svg);
-    } else if (!active) { show(nodes[3]); }
-  })();
+  });
 
   /* ---------- Command palette ---------- */
   (function () {
@@ -173,7 +122,6 @@
     var list = document.getElementById("palette-list");
     var items = Array.prototype.slice.call(list.querySelectorAll("li"));
     var sel = 0;
-
     function visible() { return items.filter(function (li) { return !li.hidden; }); }
     function select(i) {
       var v = visible(); if (!v.length) return;
