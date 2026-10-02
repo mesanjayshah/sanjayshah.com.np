@@ -1,95 +1,115 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><title>Sanjay Shah — Résumé</title>
 <style>
-@page { size: A4; margin: 14mm 15mm; }
+@page { size: A4; margin: 13mm 15mm; }
 * { box-sizing: border-box; margin: 0; padding: 0; }
-body { font: 10pt/1.42 -apple-system, "Helvetica Neue", Arial, sans-serif; color: #1c1917; }
-header { border-bottom: 2px solid #0f766e; padding-bottom: 7pt; margin-bottom: 9pt; }
-h1 { font-size: 20pt; letter-spacing: .02em; }
-.role { color: #0f766e; font-weight: 600; font-size: 11pt; margin-top: 1pt; }
-.contact { color: #57534e; font-size: 9pt; margin-top: 4pt; }
+body { font: 9.6pt/1.4 -apple-system, "Helvetica Neue", Arial, sans-serif; color: #16181c; }
+header { border-bottom: 2px solid #3f6d00; padding-bottom: 6pt; margin-bottom: 8pt; }
+h1 { font-size: 19pt; letter-spacing: .01em; }
+.role { color: #3f6d00; font-weight: 600; font-size: 10.5pt; margin-top: 1pt; }
+.contact { color: #4b5260; font-size: 8.6pt; margin-top: 3pt; }
 .contact a { color: inherit; text-decoration: none; }
-h2 { font-size: 10.5pt; text-transform: uppercase; letter-spacing: .08em; color: #0f766e; margin: 11pt 0 5pt; }
+h2 { font-size: 10pt; text-transform: uppercase; letter-spacing: .08em; color: #3f6d00; margin: 10pt 0 4pt; }
 p { margin-bottom: 4pt; }
-.job { margin-bottom: 8pt; break-inside: avoid; }
+.values { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6pt; margin: 2pt 0 2pt; }
+.values div { border: 1px solid #ddd9cf; border-top: 2px solid #3f6d00; border-radius: 3pt; padding: 4pt 6pt; font-size: 8.5pt; line-height: 1.35; }
+.values b { display: block; font-size: 9pt; margin-bottom: 1pt; }
+.job { margin-bottom: 7pt; }
+.job-head, .domain { break-after: avoid; }
+li { break-inside: avoid; }
 .job-head { display: flex; justify-content: space-between; align-items: baseline; }
-.job-head h3 { font-size: 10.5pt; }
-.job-head span { color: #57534e; font-size: 9pt; white-space: nowrap; }
-.domain { color: #57534e; font-style: italic; font-size: 9.5pt; margin-bottom: 2pt; }
-ul { padding-left: 13pt; }
-li { margin-bottom: 2pt; }
-.skills { display: grid; grid-template-columns: 9.5em 1fr; gap: 2pt 8pt; }
+.job-head h3 { font-size: 10.3pt; }
+.job-head span { color: #4b5260; font-size: 8.8pt; white-space: nowrap; }
+.domain { color: #4b5260; font-style: italic; font-size: 9.2pt; margin-bottom: 2pt; }
+ul { padding-left: 12pt; }
+li { margin-bottom: 1.6pt; }
+.skills { display: grid; grid-template-columns: 9em 1fr; gap: 1.5pt 8pt; }
 .skills dt { font-weight: 600; }
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 0 14pt; }
+.note { color: #4b5260; font-size: 8.4pt; }
 </style></head>
 <body>
 <header>
   <h1>SANJAY SHAH</h1>
-  <div class="role">Senior Software Engineer · Java, Spring Boot, Cloud &amp; Identity</div>
-  <div class="contact">Kathmandu, Nepal · +977 986 327 4892 · <a href="mailto:messanjayshah@gmail.com">messanjayshah@gmail.com</a> · <a href="https://sanjayshah.com.np">sanjayshah.com.np</a> · <a href="https://www.linkedin.com/in/mesanjay">linkedin.com/in/mesanjay</a> · <a href="https://www.credly.com/users/sanjay-shah.861076ff">credly.com/users/sanjay-shah.861076ff</a></div>
+  <div class="role">Senior Software Engineer · Java, Spring Boot, Kafka, PostgreSQL, Cloud &amp; Identity</div>
+  <div class="contact">Kathmandu, Nepal · +977 986 327 4892 · <a href="mailto:messanjayshah@gmail.com">messanjayshah@gmail.com</a> · <a href="https://sanjayshah.com.np">sanjayshah.com.np</a> · <a href="https://www.linkedin.com/in/mesanjay">linkedin.com/in/mesanjay</a> · <a href="https://github.com/mesanjayshah">github.com/mesanjayshah</a> · <a href="https://www.credly.com/users/sanjay-shah.861076ff">credly.com/users/sanjay-shah.861076ff</a></div>
 </header>
 
 <h2>Professional Summary</h2>
-<p>Senior Software Engineer with 6+ years designing, building and delivering scalable, secure, high-performance software in agile teams. Specialises in Java, Spring Boot, microservices and AWS, with domain depth in healthcare information systems, identity and access management, and multi-tenant SaaS. Track record of leading delivery, mentoring developers, and owning mission-critical systems, with a strong focus on architecture, performance, secure coding and AI-assisted engineering.</p>
-
-<h2>Skills</h2>
-<dl class="skills">
-  <dt>Languages</dt><dd>Java 8 → 25 (virtual threads), SQL, TypeScript, JavaScript</dd>
-  <dt>Frameworks</dt><dd>Spring Boot, J2EE, Hibernate, JPA, React, Thymeleaf, Tailwind CSS, HTMX, Alpine.js</dd>
-  <dt>Architecture</dt><dd>Microservices, event-driven (Apache Kafka, outbox pattern), multi-tenancy, RESTful APIs, multithreading, design patterns</dd>
-  <dt>Cloud &amp; DevOps</dt><dd>AWS (EC2, S3, Lambda, DynamoDB, API Gateway), Docker, Kubernetes (k3s), Helm, Argo CD (GitOps), Terraform/OpenTofu, GitHub Actions, Jenkins, Prometheus, Maven, Gradle</dd>
-  <dt>IAM &amp; Security</dt><dd>Okta, Auth0, Keycloak, OAuth2, OIDC, SAML, SCIM, LDAP, JWT</dd>
-  <dt>DevSecOps</dt><dd>Semgrep, Checkmarx, SonarQube, Trivy, gitleaks, Checkov, Kubescape, Cosign</dd>
-  <dt>Databases</dt><dd>PostgreSQL (row-level security), Flyway, Redis, MySQL, MongoDB</dd>
-  <dt>Testing</dt><dd>Playwright (E2E), JUnit 5, Mockito, Testcontainers, ArchUnit</dd>
-  <dt>AI-assisted</dt><dd>Claude Code, MCP servers, multi-agent workflows, Caveman (token-efficient agent mode), Ponytail (minimal-code discipline), AI-assisted code review and testing</dd>
-  <dt>Practices</dt><dd>Git, Agile/Scrum, code review, mentoring</dd>
-</dl>
+<p>Senior Software Engineer with seven years building backend platforms where identity, money and patient data have to be right: a multi-tenant hospital &amp; enterprise ERP platform being extracted from a monolith into domain services (Java 25, Spring Boot, Kafka, PostgreSQL with row-level security, Kubernetes/GitOps); identity and access management for enterprise clients in the US and Europe (OIDC, SAML, SCIM, Okta, Keycloak); and a multi-tenant education SaaS ERP. I work by four values, in this order: <b>deliver the solution</b> — working, verified outcomes, not just code; <b>security</b> — secure by construction, enforced in the pipeline and at the database; <b>compliance</b> — regulation treated as an input, with versioned thresholds and tamper-evident audit trails; and <b>future-proof</b> — designs that survive replay, retry and the next extraction.</p>
+<div class="values">
+  <div><b>1 · Deliver the solution</b>Done means verified end to end through the real path — E2E spec, seeded boot test, live browser.</div>
+  <div><b>2 · Security</b>OIDC front door, tenant isolation that fails closed, encrypted protected fields, SAST/SCA/secrets/IaC gates, signed images.</div>
+  <div><b>3 · Compliance</b>Versioned statutory thresholds, clause-cited annotations, hash-chained financial audit trail, PHI access logging.</div>
+  <div><b>4 · Future-proof</b>Outbox events, idempotent consumers, absolute values on the wire, one DB and migration chain per service, rules that fail the build.</div>
+</div>
 
 <h2>Work Experience</h2>
 <div class="job">
   <div class="job-head"><h3>Senior Software Engineer</h3><span>Nov 2025 – Present</span></div>
-  <div class="domain">Healthcare information systems</div>
+  <div class="domain">Multi-tenant hospital &amp; enterprise ERP platform (OPD/IPD, lab, radiology, pharmacy, billing, HR &amp; payroll, accounting, inventory, recruitment, CRM)</div>
   <ul>
-    <li>Build and enhance healthcare software with Java, Spring Boot and cloud-native services, with an emphasis on reliability and performance.</li>
-    <li>Apply secure-coding and data-protection practices to the handling of sensitive patient information.</li>
-    <li>Use AI-assisted engineering workflows to speed up development, code review and testing.</li>
+    <li><b>Service extraction standard:</b> co-authored and enforce the rules a service must meet to count as extracted — own database and Flyway chain, tenant propagated explicitly over HTTP and Kafka record headers and failing closed when absent, consumers idempotent by unique constraint, blocking bounded retry into a dead-letter topic.</li>
+    <li><b>Tenant isolation:</b> PostgreSQL row-level security (FORCE RLS, two-role owner/app model), Hibernate tenant and soft-delete filters enabled by aspect, by-id loads that answer 404 on tenant mismatch so existence never leaks.</li>
+    <li><b>Event-driven integration:</b> transactional outbox → polling relay → Kafka → idempotent consumers; absolute values on the wire; one authority per fact with projections keyed by the owner's id.</li>
+    <li><b>Protected data &amp; regulatory engines:</b> field-level encryption (randomised AES-GCM; deterministic where columns must stay indexable), PHI access logging, hash-chained financial audit trail, annotation-driven compliance traceability with versioned statutory thresholds; integrations with national health reporting (DHIS2), tax-authority e-invoicing and health-insurance claims.</li>
+    <li><b>Delivery &amp; AppSec:</b> GitHub Actions → Helm → Argo CD on k3s in AWS, Terraform infrastructure; a shared shift-left security workflow every service inherits — Semgrep with 23 custom rules, Trivy SCA and licence policy, gitleaks, Checkov, Kubescape, CycloneDX SBOM, Cosign-signed images, ZAP pre-release.</li>
+    <li><b>Quality as a gate:</b> Playwright end-to-end spec mandatory for every form (incl. tampered POST and cross-tenant id → 404), ArchUnit rules for layering and tenant-scoped loads, JUnit 5 + Mockito, Testcontainers integration tests.</li>
+    <li><b>AI-assisted engineering:</b> wrote the engineering rules and tiered memory that steer coding agents in the codebase; multi-agent audits; token-discipline skills. Working daily in a ~700k-line Java codebase: 10 services, 10 shared libraries, 811 migrations, 851 RLS policies, 583 E2E specs, 18 CI/CD workflows.</li>
   </ul>
 </div>
 <div class="job">
   <div class="job-head"><h3>Senior Software Engineer</h3><span>Aug 2022 – Nov 2025</span></div>
   <div class="domain">Identity &amp; access management for enterprise clients (US and Europe)</div>
   <ul>
-    <li>Designed and implemented custom SCIM connectors and migration tools, including identity migration from Keycloak to Okta, improving client onboarding speed and data accuracy.</li>
-    <li>Delivered identity federation, SSO and system upgrades using OIDC and SAML for enterprise clients in sports media and banking.</li>
-    <li>Built secure web applications with Okta, Auth0 and Spring Boot, supporting OAuth 2.0 flows and multi-tenant architecture.</li>
-    <li>Modernised legacy IAM connector codebases for performance and maintainability, and introduced Checkmarx static analysis to enforce secure development.</li>
-    <li>Contributed to an internal pre-sales estimation tool, improving estimation accuracy for enterprise deployments.</li>
-    <li>Earned multiple Okta certifications and mentored engineers on identity standards.</li>
+    <li>Designed and built custom SCIM 2.0 connectors and a bulk migration tool, moving identities from a self-hosted Keycloak to Okta securely and without onboarding delays.</li>
+    <li>Delivered identity federation, SSO and platform upgrades on OIDC, SAML and OAuth 2.0 for enterprise clients in sports media and banking, with Okta, Auth0 and Spring Boot across multi-tenant application estates.</li>
+    <li>Modernised legacy IAM connector codebases for performance and maintainability; introduced Checkmarx static analysis into the pipeline to enforce secure development.</li>
+    <li>Built an internal pre-sales estimation tool (Spring Boot, React) that improved estimate accuracy for enterprise deployments.</li>
+    <li>Earned three Okta certifications; mentored engineers on identity standards and secure-by-default integration.</li>
   </ul>
 </div>
 <div class="job">
   <div class="job-head"><h3>Full Stack Software Developer</h3><span>Aug 2019 – Feb 2022</span></div>
   <div class="domain">Multi-tenant SaaS ERP for education</div>
   <ul>
-    <li>Designed and developed ERP modules including HR &amp; Payroll, CRM, CMS and Online Examination.</li>
-    <li>Led the re-architecture of the CRM module with React, Spring Boot and PostgreSQL for usability, maintainability and scale.</li>
-    <li>Built frontend (React, HTML, jQuery, Bootstrap) and backend (Spring Boot, JSP, Thymeleaf, MySQL, PostgreSQL) features, delivering a 25% performance gain.</li>
-    <li>Migrated a monolith to a modular architecture with Maven and Gradle; containerised with Docker on AWS EC2, cutting manual deployment time.</li>
-    <li>Contributed to the SaaS foundation redesign, improving multi-tenancy and onboarding of new institutions.</li>
+    <li>Designed and developed HR &amp; Payroll, CRM, CMS and Online Examination modules (React, Spring Boot, PostgreSQL, MySQL).</li>
+    <li>Led the re-architecture of the CRM module for usability, maintainability and scale; delivered a 25% performance gain on hot paths.</li>
+    <li>Migrated a monolith to a modular Maven/Gradle build and containerised it with Docker on AWS EC2, cutting manual deployment time.</li>
+    <li>Contributed to the SaaS foundation redesign, strengthening multi-tenancy and onboarding of new institutions.</li>
   </ul>
 </div>
 
-<h2>Education</h2>
-<ul>
-  <li>Master of Computer Science (MCS) — pursuing</li>
-  <li>Bachelor’s Degree in Computer Science — 2015 – 2019</li>
-</ul>
+<h2>Skills</h2>
+<dl class="skills">
+  <dt>Languages</dt><dd>Java 8 → 25 (records, sealed types, virtual threads), SQL, TypeScript, JavaScript</dd>
+  <dt>Frameworks</dt><dd>Spring Boot 4, Spring Security, Hibernate/JPA, React, Thymeleaf, Tailwind CSS, HTMX, Alpine.js</dd>
+  <dt>Architecture</dt><dd>Microservices &amp; service extraction, multi-tenancy, event-driven (Kafka, transactional outbox, idempotent consumers), REST, mobile BFF</dd>
+  <dt>Data</dt><dd>PostgreSQL (row-level security, two-role model), Flyway, Redis, Testcontainers, MySQL, MongoDB</dd>
+  <dt>Cloud &amp; DevOps</dt><dd>AWS (EC2, RDS, ECR, S3, CloudFront, SSM), Docker, Kubernetes (k3s), Helm, Argo CD (GitOps), Terraform/OpenTofu, GitHub Actions, Jenkins, Prometheus/CloudWatch</dd>
+  <dt>IAM &amp; Security</dt><dd>OAuth 2.0, OIDC, SAML 2.0, SCIM 2.0, JWT, LDAP, Okta, Auth0, Keycloak, field-level encryption, PII/PHI handling</dd>
+  <dt>DevSecOps</dt><dd>Semgrep (custom rules), Trivy, gitleaks, Checkov, Kubescape, Cosign, CycloneDX SBOM, OWASP ZAP, Checkmarx, SonarQube</dd>
+  <dt>Testing</dt><dd>Playwright (E2E), JUnit 5, Mockito, Testcontainers, ArchUnit, MockMvc</dd>
+  <dt>AI-assisted</dt><dd>Claude Code, MCP servers, multi-agent workflows, rule files and tiered memory for agents, token-discipline skills, agent-written tests verified in a live browser</dd>
+</dl>
 
-<h2>Certifications</h2>
-<ul>
-  <li>Okta Certified Developer, CIC — 2024</li>
-  <li>Okta Certified Consultant — 2023</li>
-  <li>Okta Certified Developer, WIC — 2023</li>
-  <li>Web Security and Access Management: JWT, OAuth2 and OpenID Connect — 2022</li>
-</ul>
+<div class="two">
+  <div>
+    <h2>Education</h2>
+    <ul>
+      <li>Master of Computer Science — pursuing</li>
+      <li>Bachelor of Science in Computer Science — 2015 – 2019</li>
+    </ul>
+  </div>
+  <div>
+    <h2>Certifications</h2>
+    <ul>
+      <li>Okta Certified Developer, Customer Identity Cloud — 2024</li>
+      <li>Okta Certified Consultant — 2023</li>
+      <li>Okta Certified Developer, Workforce Identity Cloud — 2023</li>
+      <li>Web Security &amp; Access Management: JWT, OAuth 2.0, OIDC — 2022</li>
+    </ul>
+  </div>
+</div>
+<p class="note" style="margin-top:6pt">Employers and clients are described by domain. Codebase figures are counted from the repository, October 2026.</p>
 </body></html>

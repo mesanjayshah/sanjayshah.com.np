@@ -1,28 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; base-uri 'none'; form-action https://formspree.io; object-src 'none'">
-  <meta name="color-scheme" content="light dark">
-  <meta name="theme-color" content="#fafaf9" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#0c0a09" media="(prefers-color-scheme: dark)">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; base-uri 'none'; form-action https://formspree.io; object-src 'none'">
+  <meta name="color-scheme" content="dark light">
+  <meta name="theme-color" content="#0b0d10">
 
   <title>Sanjay Shah — Senior Software Engineer</title>
-  <meta name="description" content="Senior Software Engineer building secure, scalable Java and Spring Boot systems: healthcare information systems, identity and access management (OAuth2, OIDC, SAML, SCIM), multi-tenant SaaS platforms, and cloud-native services on AWS.">
+  <meta name="description" content="Senior Software Engineer in Kathmandu. Seven years building backend platforms where identity, money and patient data have to be right: multi-tenant ERP on Java 25, Kafka and PostgreSQL; identity and access management (OIDC, SAML, SCIM, Okta, Keycloak); GitOps delivery with a shift-left AppSec pipeline.">
   <meta name="author" content="Sanjay Shah">
   <link rel="canonical" href="https://sanjayshah.com.np/">
   <link rel="icon" href="assets/favicon.ico" sizes="any">
+  <link rel="preload" href="assets/fonts/bricolage-grotesque.woff2" as="font" type="font/woff2" crossorigin>
 
   <meta property="og:type" content="profile">
   <meta property="og:title" content="Sanjay Shah — Senior Software Engineer">
-  <meta property="og:description" content="Secure, scalable Java systems: healthcare, identity and access management, multi-tenant SaaS, cloud-native services on AWS.">
+  <meta property="og:description" content="Backend platforms where identity, money and patient data have to be right. Multi-tenant ERP, IAM, GitOps delivery, shift-left AppSec.">
   <meta property="og:url" content="https://sanjayshah.com.np/">
   <meta property="og:image" content="https://sanjayshah.com.np/assets/profile.jpeg">
   <meta property="og:image:alt" content="Portrait of Sanjay Shah">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Sanjay Shah — Senior Software Engineer">
-  <meta name="twitter:description" content="Secure, scalable Java systems: healthcare, identity and access management, multi-tenant SaaS, cloud-native services on AWS.">
+  <meta name="twitter:description" content="Backend platforms where identity, money and patient data have to be right.">
   <meta name="twitter:image" content="https://sanjayshah.com.np/assets/profile.jpeg">
 
   <script type="application/ld+json">
@@ -41,220 +41,509 @@
       "https://www.linkedin.com/in/mesanjay/",
       "https://www.credly.com/users/sanjay-shah.861076ff"
     ],
-    "knowsAbout": ["Java", "Spring Boot", "Microservices", "OAuth2", "OpenID Connect", "SAML", "SCIM", "AWS", "React", "TypeScript", "PostgreSQL"]
+    "knowsAbout": ["Java", "Spring Boot", "Apache Kafka", "PostgreSQL", "Multi-tenant architecture", "OAuth 2.0", "OpenID Connect", "SAML", "SCIM", "Okta", "Keycloak", "Kubernetes", "Argo CD", "Terraform", "DevSecOps", "Playwright"]
   }
   </script>
 
   <link rel="stylesheet" href="css/site.css">
-  <script src="js/main.js"></script>
+  <script src="js/theme.js"></script>
+  <script src="js/main.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to content</a>
+  <canvas id="field" class="bgfield" aria-hidden="true"></canvas>
 
   <header class="site-header">
     <nav class="nav" aria-label="Primary">
-      <a class="brand" href="#top">Sanjay Shah</a>
+      <a class="brand" href="#top"><span class="brand-mark" aria-hidden="true"></span>Sanjay Shah</a>
       <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#work">Work</a></li>
-        <li><a href="#experience">Experience</a></li>
+        <li><a href="#values">Values</a></li>
+        <li><a href="#career">Career</a></li>
+        <li><a href="#capabilities">Capabilities</a></li>
+        <li><a href="#principles">Principles</a></li>
+        <li><a href="#practice">Practice</a></li>
+        <li><a href="#agents">Agents</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
-      <button class="theme-toggle" type="button" id="theme-toggle" aria-pressed="false" aria-label="Switch to dark theme">
-        <svg class="icon-sun" aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
-        <svg class="icon-moon" aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-      </button>
+      <div class="nav-tools">
+        <button class="kbd-btn" type="button" id="palette-open" aria-haspopup="dialog" aria-controls="palette">
+          <span>Search</span><kbd>⌘K</kbd>
+        </button>
+        <button class="theme-toggle" type="button" id="theme-toggle" aria-pressed="true" aria-label="Switch to light theme">
+          <svg class="icon-sun" aria-hidden="true" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+          <svg class="icon-moon" aria-hidden="true" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+      </div>
     </nav>
   </header>
 
   <main id="main-content" tabindex="-1">
+
+    <!-- ============ HERO ============ -->
     <section class="hero" id="top" aria-labelledby="hero-title">
-      <div class="hero-text">
-        <p class="eyebrow">Senior Software Engineer · Java · Cloud · Identity</p>
-        <h1 id="hero-title">Building secure, scalable, high-performance systems.</h1>
-        <p class="lead">Six-plus years designing and delivering backend platforms, healthcare information systems, identity and access management, and multi-tenant SaaS — from architecture through production.</p>
-        <div class="actions">
-          <a class="btn btn-primary" href="#work">Selected work</a>
-          <a class="btn btn-ghost" href="#contact">Get in touch</a>
-          <a class="btn btn-ghost" href="assets/resume.pdf" download>Résumé (PDF)</a>
+      <div class="hero-grid">
+        <div class="hero-text">
+          <p class="eyebrow"><span class="dot" aria-hidden="true"></span>Senior Software Engineer · Kathmandu, Nepal</p>
+          <h1 id="hero-title">I build backend platforms where <em>identity</em>, <em>money</em> and <em>patient data</em> have to be right.</h1>
+          <p class="lead">Seven years across identity &amp; access management for enterprise clients, multi-tenant SaaS, and — today — a hospital &amp; enterprise ERP platform on Java&nbsp;25, Kafka and PostgreSQL. I care about the unglamorous guarantees: tenant isolation that fails closed, consumers that are idempotent by constraint, audit trails that cannot be rewritten.</p>
+          <div class="actions">
+            <a class="btn btn-primary" href="#career">Read the career</a>
+            <a class="btn btn-ghost" href="assets/resume.pdf">Résumé <span class="muted">PDF</span></a>
+            <span class="hint"><kbd>⌘</kbd><kbd>K</kbd> to jump anywhere</span>
+          </div>
+          <ol class="values-inline" aria-label="Core values">
+            <li><a href="#values"><b>01</b> Deliver the solution</a></li>
+            <li><a href="#values"><b>02</b> Security</a></li>
+            <li><a href="#values"><b>03</b> Compliance</a></li>
+            <li><a href="#values"><b>04</b> Future-proof</a></li>
+          </ol>
         </div>
+        <figure class="hero-card">
+          <img class="portrait" src="assets/profile.jpeg" alt="Portrait of Sanjay Shah" width="560" height="560" fetchpriority="high" decoding="async">
+          <figcaption>
+            <dl class="facts">
+              <div><dt>Now</dt><dd>Multi-tenant hospital &amp; enterprise ERP platform</dd></div>
+              <div><dt>Before</dt><dd>IAM for enterprise clients, US &amp; Europe</dd></div>
+              <div><dt>Stack</dt><dd>Java 25 · Spring Boot · Kafka · PostgreSQL · k3s</dd></div>
+              <div><dt>Status</dt><dd>Open to senior backend &amp; platform roles</dd></div>
+            </dl>
+          </figcaption>
+        </figure>
       </div>
-      <img class="portrait" src="assets/profile.jpeg" alt="Portrait of Sanjay Shah" width="320" height="320" fetchpriority="high">
+      <ol class="hero-track" aria-label="Career timeline overview">
+        <li><a href="#role-edu"><span class="yr">2019 — 22</span><span class="what">Full stack · education SaaS ERP</span></a></li>
+        <li><a href="#role-iam"><span class="yr">2022 — 25</span><span class="what">Senior · identity &amp; access management</span></a></li>
+        <li class="now"><a href="#role-erp"><span class="yr">2025 — now</span><span class="what">Senior · hospital &amp; enterprise ERP platform</span></a></li>
+      </ol>
     </section>
 
-    <section class="section reveal" id="about" aria-labelledby="about-title">
-      <h2 id="about-title">About</h2>
-      <div class="prose">
-        <p>I design, build and operate secure, scalable applications — mostly on the JVM. My core strengths are Java and Spring Boot, microservice and REST API design, and cloud-native delivery on AWS, with full-stack work in React and TypeScript when the product needs it.</p>
-        <p>Today I build healthcare information systems. Before that, a large part of my work was identity and access management: OAuth2 and OIDC flows, SAML federation, SCIM provisioning and large-scale identity migrations for enterprise customers. Earlier, I built and modernised multi-tenant SaaS ERP modules for the education sector. I enjoy mentoring engineers, raising secure-coding standards and turning legacy systems into maintainable ones.</p>
-      </div>
-    </section>
-
-    <section class="section reveal" id="skills" aria-labelledby="skills-title">
-      <h2 id="skills-title">Skills</h2>
-      <div class="skill-grid">
-        <div class="skill-group">
-          <h3>Backend</h3>
-          <ul class="chips">
-            <li>Java 8 → 25</li><li>Virtual threads</li><li>Spring Boot</li><li>Hibernate / JPA</li><li>J2EE</li><li>Microservices</li><li>REST API design</li><li>Multithreading</li><li>OOP &amp; design patterns</li><li>Thymeleaf / JSP</li><li>Apache Kafka</li><li>Event-driven / outbox pattern</li><li>RabbitMQ</li><li>AWS SQS / SNS</li><li>Maven / Gradle</li>
-          </ul>
-        </div>
-        <div class="skill-group">
-          <h3>Frontend</h3>
-          <ul class="chips">
-            <li>React</li><li>TypeScript</li><li>JavaScript</li><li>HTML &amp; CSS</li><li>Tailwind CSS</li><li>HTMX</li><li>Alpine.js</li><li>Bootstrap</li><li>jQuery</li><li>UI/UX collaboration</li><li>Accessibility</li>
-          </ul>
-        </div>
-        <div class="skill-group">
-          <h3>Cloud &amp; DevOps</h3>
-          <ul class="chips">
-            <li>AWS EC2</li><li>AWS S3</li><li>AWS Lambda</li><li>API Gateway</li><li>Docker</li><li>Kubernetes (k3s)</li><li>Helm</li><li>Argo CD (GitOps)</li><li>Terraform / OpenTofu</li><li>GitHub Actions</li><li>Jenkins</li><li>Prometheus</li><li>Git</li>
-          </ul>
-        </div>
-        <div class="skill-group">
-          <h3>Data</h3>
-          <ul class="chips">
-            <li>PostgreSQL</li><li>Row-level security</li><li>Flyway migrations</li><li>Redis</li><li>MySQL</li><li>MongoDB</li><li>DynamoDB</li><li>Multi-tenant data models</li>
-          </ul>
-        </div>
-        <div class="skill-group">
-          <h3>Security &amp; Compliance</h3>
-          <ul class="chips">
-            <li>OAuth2</li><li>OpenID Connect</li><li>SAML</li><li>SCIM</li><li>LDAP</li><li>JWT</li><li>SSO &amp; federation</li><li>Okta</li><li>Auth0</li><li>Keycloak</li><li>Static analysis (Checkmarx, SonarQube, Semgrep)</li><li>Trivy</li><li>gitleaks</li><li>Checkov</li><li>Kubescape</li><li>Cosign image signing</li><li>DevSecOps pipelines</li><li>Secure coding practices</li>
-          </ul>
-        </div>
-        <div class="skill-group">
-          <h3>AI-assisted Engineering</h3>
-          <ul class="chips">
-            <li>Claude Code</li><li>MCP servers</li><li>Multi-agent workflows</li><li>Caveman (token-efficient agent mode)</li><li>Ponytail (minimal-code discipline)</li><li>AI-assisted code review</li><li>AI-assisted testing &amp; debugging</li>
-          </ul>
-        </div>
-        <div class="skill-group">
-          <h3>Testing &amp; Quality</h3>
-          <ul class="chips">
-            <li>Playwright E2E</li><li>JUnit 5</li><li>Mockito</li><li>Testcontainers</li><li>ArchUnit</li><li>MockMvc</li>
-          </ul>
-        </div>
-      </div>
-      <h3 class="sub">Certifications</h3>
-      <ul class="plain-list">
-        <li>Okta Certified Developer (CIC) · 2024</li>
-        <li>Okta Certified Consultant · 2023</li>
-        <li>Okta Certified Developer (WIC) · 2023</li>
-        <li>Web Security &amp; Access Management (JWT, OAuth2, OIDC) · 2022</li>
-      </ul>
-    </section>
-
-    <section class="section reveal" id="work" aria-labelledby="work-title">
-      <h2 id="work-title">Selected work</h2>
-      <p class="section-intro">Problem, stack, outcome. Described by domain — not by customer.</p>
-      <div class="card-grid">
-        <article class="card">
-          <h3>Enterprise identity federation &amp; SSO</h3>
-          <p class="problem">Enterprise customers in sports media and banking needed a single identity layer across many applications and identity providers.</p>
-          <p class="stack"><span class="label">Stack</span> Okta, Auth0, Spring Boot, OIDC, SAML, OAuth2</p>
-          <p class="outcome"><span class="label">Outcome</span> Federated SSO with standards-based authentication across tenants, replacing bespoke per-app login.</p>
-        </article>
-        <article class="card">
-          <h3>SCIM connectors &amp; bulk identity migration</h3>
-          <p class="problem">Thousands of identities had to move from a self-hosted identity provider to a cloud IdP without data loss or onboarding delays.</p>
-          <p class="stack"><span class="label">Stack</span> Java, SCIM 2.0, Keycloak → Okta, REST</p>
-          <p class="outcome"><span class="label">Outcome</span> Custom SCIM connectors and a bulk migration tool cut onboarding time and kept the migration secure and auditable.</p>
-        </article>
-        <article class="card">
-          <h3>Legacy IAM connector modernisation</h3>
-          <p class="problem">Ageing identity connectors were slow to change and had no automated security scanning.</p>
-          <p class="stack"><span class="label">Stack</span> Java, Spring Boot, Checkmarx, CI/CD</p>
-          <p class="outcome"><span class="label">Outcome</span> Faster, more maintainable connectors with static analysis enforcing secure coding in the pipeline.</p>
-        </article>
-        <article class="card">
-          <h3>Multi-tenant education ERP (SaaS)</h3>
-          <p class="problem">Institutions needed HR &amp; payroll, CRM, CMS and online examination on one tenant-isolated platform.</p>
-          <p class="stack"><span class="label">Stack</span> Spring Boot, React, PostgreSQL, Thymeleaf, Docker on AWS EC2</p>
-          <p class="outcome"><span class="label">Outcome</span> Re-architected CRM, 25%+ performance gains, monolith split into modules, and smoother institutional onboarding through stronger multi-tenancy.</p>
-        </article>
-        <article class="card">
-          <h3>Pre-sales service estimation tool</h3>
-          <p class="problem">Engineering estimates for enterprise deployments were inconsistent and slow to produce.</p>
-          <p class="stack"><span class="label">Stack</span> Java, Spring Boot, React</p>
-          <p class="outcome"><span class="label">Outcome</span> More accurate estimates and shorter enterprise deployment cycles.</p>
-        </article>
-        <article class="card">
-          <h3>E-commerce web application</h3>
-          <p class="problem">A full-stack storefront with secure accounts, catalogue, cart and payments.</p>
-          <p class="stack"><span class="label">Stack</span> Spring Boot, JSP, MySQL</p>
-          <p class="outcome"><span class="label">Outcome</span> End-to-end purchase flow with authenticated users and integrated payment.</p>
-        </article>
-        <article class="card">
-          <h3>Inventory management system</h3>
-          <p class="problem">Stock levels drifted and shortages were noticed too late.</p>
-          <p class="stack"><span class="label">Stack</span> Java, MySQL, role-based access control</p>
-          <p class="outcome"><span class="label">Outcome</span> Real-time stock tracking, automated alerts and reporting with per-role access.</p>
-        </article>
-        <article class="card">
-          <h3>Secured REST API platform</h3>
-          <p class="problem">Application data needed a documented, access-controlled API surface.</p>
-          <p class="stack"><span class="label">Stack</span> Spring Boot, JPA, JWT, Swagger / OpenAPI</p>
-          <p class="outcome"><span class="label">Outcome</span> Documented, token-secured APIs ready for frontend and partner consumption.</p>
-        </article>
-      </div>
-    </section>
-
-    <section class="section reveal" id="experience" aria-labelledby="experience-title">
-      <h2 id="experience-title">Experience</h2>
-      <!-- Employer names intentionally omitted; roles described by domain. -->
-      <ol class="timeline">
+    <!-- ============ VALUES ============ -->
+    <section class="section values-section" id="values" aria-labelledby="values-title">
+      <header class="section-head reveal">
+        <p class="eyebrow">Values</p>
+        <h2 id="values-title">Four things I hold myself to, in this order.</h2>
+      </header>
+      <ol class="values reveal">
         <li>
-          <p class="period">Nov 2025 — present</p>
-          <h3>Senior Software Engineer · Healthcare information systems</h3>
-          <p>Building secure, scalable healthcare software with Java, Spring Boot and cloud-native services, with a focus on reliability and careful handling of patient data.</p>
+          <span class="step">01</span>
+          <h3>Deliver the solution</h3>
+          <p>Working outcomes, not just code. A change is done when it is verified through the path real users take — the end-to-end spec, the seeded boot test, a live browser — and the guide and team memory are updated in the same commit.</p>
         </li>
         <li>
-          <p class="period">Aug 2022 — Nov 2025</p>
-          <h3>Senior Software Engineer · Identity &amp; access management</h3>
-          <p>Lead developer on IAM solutions for enterprise customers in the US and Europe: identity federation, SSO, OIDC and SAML authentication, SCIM provisioning and bulk identity migrations. Modernised legacy connectors, introduced static code analysis, and mentor engineers on IAM standards and secure coding.</p>
+          <span class="step">02</span>
+          <h3>Security</h3>
+          <p>Secure by construction: OIDC at the front door, tenant isolation that fails closed and is enforced again by the database, protected fields encrypted, and a shift-left pipeline every service inherits — SAST, SCA, secrets, IaC, signed images.</p>
         </li>
         <li>
-          <p class="period">Aug 2019 — Feb 2022</p>
-          <h3>Full Stack Software Developer · Multi-tenant SaaS ERP</h3>
-          <p>Built and re-architected education ERP modules (HR &amp; payroll, CRM, CMS, online examination) with Spring Boot, React and PostgreSQL. Migrated a monolith to a modular build, containerised with Docker on AWS EC2, and strengthened multi-tenancy and UX across the platform.</p>
+          <span class="step">03</span>
+          <h3>Compliance</h3>
+          <p>Regulation is an input, not an afterthought. Statutory thresholds are versioned with a review date, compliance annotations cite the clause, financial audit trails are hash-chained and PHI access is logged — so an audit is a report, not a scramble.</p>
+        </li>
+        <li>
+          <span class="step">04</span>
+          <h3>Future-proof</h3>
+          <p>Built to survive replay, retry and the next service extraction: outbox events, idempotent consumers, absolute values on the wire, one database and migration chain per service, and architecture rules that fail the build when someone forgets.</p>
         </li>
       </ol>
-      <h3 class="sub">Education</h3>
-      <ul class="plain-list">
-        <li>Master of Computer Science — in progress</li>
-        <li>Bachelor of Computer Science — 2015–2019</li>
-      </ul>
-      <p><a class="btn btn-ghost" href="assets/resume.pdf" download>Download résumé (PDF)</a></p>
     </section>
 
-    <section class="section reveal" id="contact" aria-labelledby="contact-title">
-      <h2 id="contact-title">Contact</h2>
-      <p class="section-intro">Open to senior backend, healthcare, identity and platform engineering work. The quickest way to reach me is email.</p>
-      <form class="contact-form" action="https://formspree.io/f/mldwagrd" method="POST">
-        <label for="cf-name">Name</label>
-        <input id="cf-name" name="name" type="text" autocomplete="name" maxlength="100" required>
-        <label for="cf-email">Email</label>
-        <input id="cf-email" name="email" type="email" autocomplete="email" maxlength="200" placeholder="name@company.com" required>
-        <label for="cf-message">Message</label>
-        <textarea id="cf-message" name="message" rows="5" maxlength="4000" required></textarea>
-        <input type="text" name="_gotcha" class="visually-hidden" tabindex="-1" autocomplete="off" aria-hidden="true">
-        <button class="btn btn-primary" type="submit">Send message</button>
-      </form>
-      <ul class="contact-list">
-        <li><a href="mailto:messanjayshah@gmail.com">messanjayshah@gmail.com</a></li>
-        <li><a href="tel:+9779863274892">+977 986 327 4892</a></li>
-        <li><a href="https://www.linkedin.com/in/mesanjay/" rel="noopener noreferrer" target="_blank">LinkedIn</a></li>
-        <li><a href="https://github.com/mesanjayshah" rel="noopener noreferrer" target="_blank">GitHub</a></li>
-        <li><a href="https://www.credly.com/users/sanjay-shah.861076ff/badges" rel="noopener noreferrer" target="_blank">Credly badges</a></li>
-      </ul>
+    <!-- ============ CAREER ============ -->
+    <section class="section" id="career" aria-labelledby="career-title">
+      <header class="section-head reveal">
+        <p class="eyebrow">Career</p>
+        <h2 id="career-title">Three chapters. One through-line: systems other people have to trust.</h2>
+        <p class="section-intro">Employers and clients are described by domain, never by name. Everything below is work I did or lead; the numbers are counted, not estimated.</p>
+      </header>
+
+      <ol class="roles">
+        <!-- ---- Current role ---- -->
+        <li class="role reveal" id="role-erp">
+          <div class="role-rail" aria-hidden="true"><span class="role-dot now"></span></div>
+          <div class="role-body">
+            <p class="period"><time datetime="2025-11">Nov 2025</time> — present <span class="tag now">current</span></p>
+            <h3>Senior Software Engineer <span class="domain">· multi-tenant hospital &amp; enterprise ERP platform</span></h3>
+            <p class="role-lead">A large multi-tenant ERP serving hospitals and enterprises — OPD/IPD, laboratory, radiology, pharmacy and billing alongside HR &amp; payroll, accounting, inventory, recruitment and CRM — being carved out of a monolith into domain services behind an OIDC gateway. My work is platform-shaped: the standards every service must meet, and the hardest cross-cutting pieces.</p>
+            <ul class="role-points">
+              <li><strong>Service extraction standard.</strong> Co-authored and enforce the rules a service must satisfy before it counts as extracted: its own database and Flyway chain, tenant propagated explicitly over HTTP headers and Kafka record headers and <em>failing closed</em> when absent, consumers idempotent by unique constraint, blocking bounded retry into a dead-letter topic — never delay-topic retries that let a reversal overtake its posting.</li>
+              <li><strong>Tenant isolation in depth.</strong> PostgreSQL row-level security with <code>FORCE</code> on every tenant table, a two-role model (owner migrates, app role reads), Hibernate tenant and soft-delete filters enabled by aspect, and by-id loads that answer 404 on a tenant mismatch so existence never leaks.</li>
+              <li><strong>Event-driven integration.</strong> Transactional outbox in the same transaction as the write → polling relay → Kafka → idempotent consumers. Absolute values on the wire (a delta double-applies on redelivery), one authority per fact, projections keyed by the owner's id.</li>
+              <li><strong>Protected data &amp; regulatory engines.</strong> Field-level encryption (randomised AES-GCM, deterministic where a column must stay indexable), PHI access logging, hash-chained financial audit trail, annotation-driven compliance traceability with versioned statutory thresholds, and integrations with national health reporting (DHIS2), tax-authority e-invoicing and health-insurance claims.</li>
+              <li><strong>Delivery &amp; AppSec.</strong> GitHub Actions → Helm → Argo CD on k3s in AWS, infrastructure in Terraform. A shared shift-left security workflow every service inherits: Semgrep with custom rules that encode our own conventions, Trivy SCA + licence policy, gitleaks, Checkov, Kubescape, CycloneDX SBOM, Cosign-signed images, ZAP pre-release.</li>
+              <li><strong>Quality as a gate.</strong> Playwright end-to-end spec mandatory for every form (seven scenarios including tampered POST and cross-tenant id → 404), ArchUnit rules for layering and tenant-scoped loads, JUnit 5 + Mockito, Testcontainers integration tests.</li>
+              <li><strong>AI-assisted engineering.</strong> Wrote the engineering rules and tiered memory that steer coding agents in this codebase; run multi-agent audits; built token-discipline skills so long sessions stay cheap and verifiable.</li>
+            </ul>
+            <div class="scale" aria-labelledby="scale-title">
+              <p class="scale-title" id="scale-title">Scale of the codebase I work in every day <span class="muted">(team codebase · counted from the repository, Oct 2026)</span></p>
+              <ul class="stats">
+                <li><b>10</b><span>deployable services</span></li>
+                <li><b>10</b><span>shared libraries</span></li>
+                <li><b>~700k</b><span>lines of Java</span></li>
+                <li><b>894</b><span>JPA entities</span></li>
+                <li><b>811</b><span>Flyway migrations</span></li>
+                <li><b>851</b><span>row-level security policies</span></li>
+                <li><b>583</b><span>Playwright E2E specs</span></li>
+                <li><b>2.4k</b><span>unit test classes</span></li>
+                <li><b>305</b><span>integration test classes</span></li>
+                <li><b>23</b><span>custom Semgrep rules</span></li>
+                <li><b>18</b><span>CI/CD workflows</span></li>
+                <li><b>15</b><span>Argo CD applications</span></li>
+              </ul>
+            </div>
+            <p class="stack"><span class="label">Stack</span> Java 25 (virtual threads) · Spring Boot 4 · Hibernate/JPA · Apache Kafka · PostgreSQL (RLS) · Flyway · Keycloak OIDC · Thymeleaf + Tailwind/HTMX/Alpine · Helm · Argo CD · k3s · Terraform · GitHub Actions · Playwright · ArchUnit</p>
+          </div>
+        </li>
+
+        <!-- ---- IAM role ---- -->
+        <li class="role reveal" id="role-iam">
+          <div class="role-rail" aria-hidden="true"><span class="role-dot"></span></div>
+          <div class="role-body">
+            <p class="period"><time datetime="2022-08">Aug 2022</time> — <time datetime="2025-11">Nov 2025</time></p>
+            <h3>Senior Software Engineer <span class="domain">· identity &amp; access management for enterprise clients</span></h3>
+            <p class="role-lead">Lead developer on IAM deliveries for enterprise customers in the US and Europe — sports media, banking — where the job was making dozens of applications and several identity providers behave as one, without breaking anyone's login.</p>
+            <ul class="role-points">
+              <li><strong>SCIM connectors &amp; bulk migration.</strong> Designed and built custom SCIM 2.0 connectors and a migration tool that moved identities from a self-hosted Keycloak to Okta — securely, auditable, and without onboarding delays for the client.</li>
+              <li><strong>Federation &amp; SSO.</strong> Delivered identity federation, single sign-on and platform upgrades on OIDC, SAML and OAuth 2.0 flows across multi-tenant application estates, with Okta, Auth0 and Spring Boot.</li>
+              <li><strong>Connector modernisation.</strong> Rebuilt ageing IAM connector codebases for performance and maintainability and introduced Checkmarx static analysis into the pipeline so secure coding was enforced, not requested.</li>
+              <li><strong>Pre-sales estimation tool.</strong> Built an internal Spring Boot + React tool that made enterprise deployment estimates consistent and faster to produce.</li>
+              <li><strong>Standards &amp; mentoring.</strong> Earned three Okta certifications and mentored engineers on identity standards, token handling and secure-by-default integration patterns.</li>
+            </ul>
+            <p class="stack"><span class="label">Stack</span> Java · Spring Boot · Okta · Auth0 · Keycloak · OAuth 2.0 · OIDC · SAML · SCIM 2.0 · LDAP · JWT · Checkmarx · React</p>
+          </div>
+        </li>
+
+        <!-- ---- Education SaaS role ---- -->
+        <li class="role reveal" id="role-edu">
+          <div class="role-rail" aria-hidden="true"><span class="role-dot"></span></div>
+          <div class="role-body">
+            <p class="period"><time datetime="2019-08">Aug 2019</time> — <time datetime="2022-02">Feb 2022</time></p>
+            <h3>Full Stack Software Developer <span class="domain">· multi-tenant education SaaS ERP</span></h3>
+            <p class="role-lead">First platform job: a SaaS ERP for educational institutions, where I went from building modules to reshaping the foundation they stood on.</p>
+            <ul class="role-points">
+              <li><strong>Modules end to end.</strong> Designed and developed HR &amp; payroll, CRM, CMS and online examination — React and Spring Boot on PostgreSQL and MySQL.</li>
+              <li><strong>CRM re-architecture.</strong> Led the rebuild of the CRM module for usability, maintainability and scale; the hot paths came out about 25% faster.</li>
+              <li><strong>Monolith to modules.</strong> Migrated a monolithic build to a modular Maven/Gradle layout and containerised it with Docker on AWS EC2, cutting manual deployment time.</li>
+              <li><strong>SaaS foundation.</strong> Contributed to the multi-tenancy redesign that made onboarding a new institution routine instead of a project.</li>
+            </ul>
+            <p class="stack"><span class="label">Stack</span> Java · Spring Boot · React · JSP/Thymeleaf · jQuery · Bootstrap · PostgreSQL · MySQL · Maven/Gradle · Docker · AWS EC2</p>
+          </div>
+        </li>
+      </ol>
+
+      <div class="edu-certs reveal">
+        <div>
+          <h3 class="sub">Certifications</h3>
+          <ul class="cert-list">
+            <li><span>Okta Certified Developer — Customer Identity Cloud</span><time datetime="2024">2024</time></li>
+            <li><span>Okta Certified Consultant</span><time datetime="2023">2023</time></li>
+            <li><span>Okta Certified Developer — Workforce Identity Cloud</span><time datetime="2023">2023</time></li>
+            <li><span>Web Security &amp; Access Management: JWT, OAuth 2.0, OpenID Connect</span><time datetime="2022">2022</time></li>
+          </ul>
+          <p class="muted small"><a href="https://www.credly.com/users/sanjay-shah.861076ff/badges" rel="noopener noreferrer" target="_blank">Verify on Credly ↗</a></p>
+        </div>
+        <div>
+          <h3 class="sub">Education</h3>
+          <ul class="cert-list">
+            <li><span>Master of Computer Science</span><time>in progress</time></li>
+            <li><span>Bachelor of Science in Computer Science</span><time datetime="2019">2015 — 2019</time></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CAPABILITIES ============ -->
+    <section class="section" id="capabilities" aria-labelledby="cap-title">
+      <header class="section-head reveal">
+        <p class="eyebrow">Capabilities</p>
+        <h2 id="cap-title">Depth, not a chip cloud.</h2>
+        <p class="section-intro">Each area carries a depth signal: <span class="depth d3">daily</span> is what I ship with every week and would defend in a design review; <span class="depth d2">solid</span> I have delivered in production; <span class="depth d1">working</span> I can be productive in tomorrow.</p>
+      </header>
+      <div class="cap-grid">
+        <article class="cap reveal">
+          <h3>Backend &amp; the JVM</h3>
+          <p>Modern Java is my home language — records, sealed types, pattern matching, virtual threads instead of thread pools, Spring Boot as the chassis.</p>
+          <dl class="tiers">
+            <dt class="d3">daily</dt><dd>Java 25 · Spring Boot 4 · Hibernate/JPA · REST &amp; server-rendered apps · Gradle convention plugins</dd>
+            <dt class="d2">solid</dt><dd>Spring Security · Spring Data · MapStruct · Maven · J2EE</dd>
+            <dt class="d1">working</dt><dd>Node/TypeScript services · Python tooling</dd>
+          </dl>
+        </article>
+        <article class="cap reveal">
+          <h3>Data &amp; messaging</h3>
+          <p>PostgreSQL as a security boundary, not just storage. Kafka with the outbox pattern, because a message bus without idempotency is a corruption engine.</p>
+          <dl class="tiers">
+            <dt class="d3">daily</dt><dd>PostgreSQL row-level security · Flyway · schema-per-service · transactional outbox · idempotent consumers · ShedLock</dd>
+            <dt class="d2">solid</dt><dd>Apache Kafka ops · Redis · Testcontainers · query tuning &amp; indexing</dd>
+            <dt class="d1">working</dt><dd>MySQL · MongoDB · DynamoDB · SQS/SNS</dd>
+          </dl>
+        </article>
+        <article class="cap reveal">
+          <h3>Identity &amp; security</h3>
+          <p>Three years as the person clients called when SSO broke. I read the specs, hold the certifications, and have migrated identity estates between providers.</p>
+          <dl class="tiers">
+            <dt class="d3">daily</dt><dd>OAuth 2.0 · OpenID Connect · JWT · Keycloak · OIDC gateway patterns · secure-coding review</dd>
+            <dt class="d2">solid</dt><dd>SAML 2.0 · SCIM 2.0 · Okta (certified ×3) · Auth0 · LDAP · field-level encryption · PHI/PII handling</dd>
+            <dt class="d1">working</dt><dd>WebAuthn/passkeys · HSM/KMS key rotation</dd>
+          </dl>
+        </article>
+        <article class="cap reveal">
+          <h3>Cloud, delivery &amp; GitOps</h3>
+          <p>Deploys should be a pull request. I run services on Kubernetes with Helm and Argo CD, and describe the infrastructure in Terraform.</p>
+          <dl class="tiers">
+            <dt class="d3">daily</dt><dd>GitHub Actions · Docker · Helm · Argo CD · k3s on AWS EC2 · Terraform/OpenTofu</dd>
+            <dt class="d2">solid</dt><dd>AWS RDS/ECR/S3/CloudFront/SSM · cert-manager · Traefik · External Secrets · observability (CloudWatch, Prometheus)</dd>
+            <dt class="d1">working</dt><dd>Jenkins · AWS Lambda/API Gateway · managed Kubernetes (EKS)</dd>
+          </dl>
+        </article>
+        <article class="cap reveal">
+          <h3>Quality &amp; AppSec</h3>
+          <p>I like tests that gate, not tests that decorate — end-to-end specs on every form, architecture rules that fail the build, and a security pipeline every service inherits by construction.</p>
+          <dl class="tiers">
+            <dt class="d3">daily</dt><dd>Playwright · JUnit 5 · Mockito · ArchUnit · Semgrep (custom rules) · Trivy · gitleaks</dd>
+            <dt class="d2">solid</dt><dd>Checkov · Kubescape · Cosign · CycloneDX SBOM · OWASP ZAP · Checkmarx · SonarQube</dd>
+            <dt class="d1">working</dt><dd>IAST agents · Jazzer fuzzing · k6 load testing</dd>
+          </dl>
+        </article>
+        <article class="cap reveal">
+          <h3>Frontend</h3>
+          <p>Full stack when the product needs it. I've shipped React applications and I currently maintain a dual-theme server-rendered UI mid-migration.</p>
+          <dl class="tiers">
+            <dt class="d3">daily</dt><dd>Thymeleaf · Tailwind CSS · HTMX · Alpine.js · accessibility (WCAG AA)</dd>
+            <dt class="d2">solid</dt><dd>React · TypeScript · Bootstrap · jQuery · design-system components</dd>
+            <dt class="d1">working</dt><dd>Next.js · mobile BFF design</dd>
+          </dl>
+        </article>
+        <article class="cap reveal cap-wide">
+          <h3>AI-assisted engineering</h3>
+          <p>I work with coding agents daily and treat it as an engineering discipline: rules in the repo, verification over trust, token budgets as a first-class constraint.</p>
+          <dl class="tiers">
+            <dt class="d3">daily</dt><dd>Claude Code · rule files that steer agents · tiered project memory · multi-agent fan-out for audits · agent-written tests verified in a live browser</dd>
+            <dt class="d2">solid</dt><dd>MCP servers · custom skills (token-compressed agent modes, minimal-code discipline) · hooks and permission allow-lists</dd>
+            <dt class="d1">working</dt><dd>LLM evaluation harnesses · agent cost telemetry</dd>
+          </dl>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ PRINCIPLES ============ -->
+    <section class="section" id="principles" aria-labelledby="princ-title">
+      <header class="section-head reveal">
+        <p class="eyebrow">Principles</p>
+        <h2 id="princ-title">Rules I work by. Each one was paid for.</h2>
+        <p class="section-intro">Distilled from the engineering standard I help maintain and grouped under the four values. None of them came from a book — every one is a defect that happened, written down so it can't happen twice.</p>
+      </header>
+      <ol class="principles">
+        <li class="reveal" data-value="Deliver"><h3>A read model isn't built until something writes it.</h3><p>Producer, consumer, backfill, and one row actually observed. Three of four is a table full of blanks that compiles perfectly.</p></li>
+        <li class="reveal" data-value="Deliver"><h3>No form is done without an end-to-end spec.</h3><p>Happy path, empty submit blocked, bad phone, bad email, inverted date range, tampered POST → 400, cross-tenant id → 404. Linted statically, proven at runtime.</p></li>
+        <li class="reveal" data-value="Deliver"><h3>Verify through the path the code uses.</h3><p>A database shell is a different principal and tenant scope than the running service; a boot test with seeders off proves beans assemble, not that the service works. Make the test report what it sees.</p></li>
+        <li class="reveal" data-value="Security"><h3>Tenant isolation fails closed.</h3><p>No ambient tenant, no default tenant. A request without a tenant header is a 400; a consumer without a tenant record header drops the message. Row-level security at the database is the last line, not the only one.</p></li>
+        <li class="reveal" data-value="Security"><h3>Not found, never forbidden.</h3><p>A by-id load under the wrong tenant answers 404. A 403 confirms the row exists — and that is already a leak.</p></li>
+        <li class="reveal" data-value="Security"><h3>A convention becomes a rule in the same change.</h3><p>If a review finds a secure-coding mistake, the fix ships with the Semgrep or ArchUnit rule that would have caught it. Otherwise the review is a wish.</p></li>
+        <li class="reveal" data-value="Compliance"><h3>Soft-delete only. Ghost rows leak.</h3><p>Every tenant table carries <code>deleted_at</code>; every collection carries the filter. A hard delete destroys the audit trail, a missing filter resurrects the dead.</p></li>
+        <li class="reveal" data-value="Compliance"><h3>Thresholds are versioned, never hard-coded.</h3><p>Any amount, percentage or day-count a regulator can change lives in a versioned service with a review date. Annotations cite the clause, so a stale rule surfaces on a dashboard instead of in an audit.</p></li>
+        <li class="reveal" data-value="Compliance"><h3>Protected data is tagged, encrypted and logged.</h3><p>PII and PHI fields carry a category annotation, sit behind a field-level encryption converter, and every read of health data lands in an access log. Never in a URL, never in a log line.</p></li>
+        <li class="reveal" data-value="Future-proof"><h3>Idempotent by constraint, absolute on the wire.</h3><p>Insert the dedupe marker on the producer's key, in the same transaction, before the handler runs, and let the unique constraint reject the replay. Carry the new balance, not the delta — a replay from the beginning is legitimate.</p></li>
+        <li class="reveal" data-value="Future-proof"><h3>Side effects go through the outbox.</h3><p>Never a cross-module service call, never <code>@Async</code> — it loses the tenant context and has no retry. Write the event in the same transaction as the fact; a relay delivers it.</p></li>
+        <li class="reveal" data-value="Future-proof"><h3>Every round trip costs fifty milliseconds.</h3><p>Users are far from the data centre. No cross-service HTTP inside a transaction, page chrome cached per tenant and user, no N+1 — and a hot-path change states before/after numbers, or it isn't a result.</p></li>
+      </ol>
+    </section>
+
+    <!-- ============ PRACTICE ============ -->
+    <section class="section" id="practice" aria-labelledby="practice-title">
+      <header class="section-head reveal">
+        <p class="eyebrow">Practice</p>
+        <h2 id="practice-title">The shape I keep coming back to.</h2>
+        <p class="section-intro">A reference architecture for a multi-tenant platform, not a diagram of any one product. Hover or focus a node — use the arrow keys to walk it.</p>
+      </header>
+
+      <div class="diagram reveal" id="arch">
+        <svg class="arch-svg" viewBox="0 0 1000 520" role="group" aria-labelledby="arch-caption" aria-describedby="arch-desc">
+          <title id="arch-caption">Reference multi-tenant platform architecture</title>
+          <desc id="arch-desc">Browser traffic passes a CDN and WAF to an OIDC gateway backed by Keycloak, then to domain services. Services write facts and outbox events in one transaction; a relay publishes to Kafka; idempotent consumers project into other services. Each service owns a PostgreSQL database with row-level security. Deployment flows from Git through CI, a signed image registry and Argo CD into Kubernetes.</desc>
+          <defs>
+            <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z"/></marker>
+          </defs>
+          <!-- lanes -->
+          <g class="lanes">
+            <text x="24" y="38" class="lane-label">REQUEST PATH</text>
+            <text x="24" y="398" class="lane-label">DEPLOY PATH</text>
+            <line x1="24" y1="370" x2="976" y2="370" class="lane-line"/>
+          </g>
+          <!-- edges request path -->
+          <g class="edges">
+            <path d="M166 100 H214" marker-end="url(#arr)"/>
+            <path d="M366 100 H414" marker-end="url(#arr)"/>
+            <path d="M290 132 V158" marker-end="url(#arr)"/>
+            <path d="M566 100 H614" marker-end="url(#arr)"/>
+            <path d="M490 132 V158" marker-end="url(#arr)"/>
+            <path d="M490 222 V248" marker-end="url(#arr)"/>
+            <path d="M566 280 H614" marker-end="url(#arr)"/>
+            <path d="M766 280 H814" marker-end="url(#arr)"/>
+            <path d="M690 132 V158" marker-end="url(#arr)"/>
+            <path d="M690 222 V248" marker-end="url(#arr)"/>
+            <path d="M890 248 V132" marker-end="url(#arr)" class="dashed"/>
+            <path d="M840 190 H766" marker-end="url(#arr)" class="dashed"/>
+            <!-- deploy path -->
+            <path d="M166 460 H214" marker-end="url(#arr)"/>
+            <path d="M366 460 H414" marker-end="url(#arr)"/>
+            <path d="M566 460 H614" marker-end="url(#arr)"/>
+            <path d="M766 460 H814" marker-end="url(#arr)"/>
+          </g>
+          <!-- nodes -->
+          <g class="nodes">
+            <g class="node" tabindex="0" role="button" data-key="edge" aria-label="Edge: CDN and WAF"><rect x="24" y="68" width="142" height="64" rx="10"/><text x="95" y="94" class="n-title">Edge</text><text x="95" y="114" class="n-sub">CDN · WAF · TLS</text></g>
+            <g class="node" tabindex="0" role="button" data-key="gateway" aria-label="Gateway: OIDC, sessions, routing"><rect x="214" y="68" width="152" height="64" rx="10"/><text x="290" y="94" class="n-title">Gateway</text><text x="290" y="114" class="n-sub">OIDC · routing · chrome</text></g>
+            <g class="node" tabindex="0" role="button" data-key="idp" aria-label="Identity provider: Keycloak"><rect x="214" y="158" width="152" height="64" rx="10"/><text x="290" y="184" class="n-title">Identity</text><text x="290" y="204" class="n-sub">Keycloak · OIDC/SAML</text></g>
+            <g class="node" tabindex="0" role="button" data-key="service" aria-label="Domain service"><rect x="414" y="68" width="152" height="64" rx="10"/><text x="490" y="94" class="n-title">Domain service</text><text x="490" y="114" class="n-sub">tenant header · RBAC</text></g>
+            <g class="node" tabindex="0" role="button" data-key="outbox" aria-label="Transactional outbox"><rect x="414" y="158" width="152" height="64" rx="10"/><text x="490" y="184" class="n-title">Outbox</text><text x="490" y="204" class="n-sub">same transaction</text></g>
+            <g class="node" tabindex="0" role="button" data-key="db" aria-label="PostgreSQL with row-level security"><rect x="414" y="248" width="152" height="64" rx="10"/><text x="490" y="274" class="n-title">PostgreSQL</text><text x="490" y="294" class="n-sub">own DB · FORCE RLS</text></g>
+            <g class="node" tabindex="0" role="button" data-key="service2" aria-label="Another domain service"><rect x="614" y="68" width="152" height="64" rx="10"/><text x="690" y="94" class="n-title">Domain service</text><text x="690" y="114" class="n-sub">different bounded context</text></g>
+            <g class="node" tabindex="0" role="button" data-key="consumer" aria-label="Idempotent consumer"><rect x="614" y="158" width="152" height="64" rx="10"/><text x="690" y="184" class="n-title">Consumer</text><text x="690" y="204" class="n-sub">idempotent by constraint</text></g>
+            <g class="node" tabindex="0" role="button" data-key="db2" aria-label="PostgreSQL for the second service"><rect x="614" y="248" width="152" height="64" rx="10"/><text x="690" y="274" class="n-title">PostgreSQL</text><text x="690" y="294" class="n-sub">projection · RLS</text></g>
+            <g class="node" tabindex="0" role="button" data-key="kafka" aria-label="Kafka"><rect x="814" y="248" width="152" height="64" rx="10"/><text x="890" y="274" class="n-title">Kafka</text><text x="890" y="294" class="n-sub">tenant record header</text></g>
+            <g class="node" tabindex="0" role="button" data-key="relay" aria-label="Outbox relay"><rect x="814" y="68" width="152" height="64" rx="10"/><text x="890" y="94" class="n-title">Relay</text><text x="890" y="114" class="n-sub">poll · publish · mark</text></g>
+            <g class="node" tabindex="0" role="button" data-key="dlt" aria-label="Dead-letter topic"><rect x="814" y="158" width="152" height="64" rx="10"/><text x="890" y="184" class="n-title">Dead letter</text><text x="890" y="204" class="n-sub">bounded retry → human</text></g>
+            <!-- deploy -->
+            <g class="node deploy" tabindex="0" role="button" data-key="git" aria-label="Git pull request"><rect x="24" y="428" width="142" height="64" rx="10"/><text x="95" y="454" class="n-title">Pull request</text><text x="95" y="474" class="n-sub">rules · review</text></g>
+            <g class="node deploy" tabindex="0" role="button" data-key="ci" aria-label="CI: tests and security gates"><rect x="214" y="428" width="152" height="64" rx="10"/><text x="290" y="454" class="n-title">CI gates</text><text x="290" y="474" class="n-sub">SAST · SCA · E2E · Arch</text></g>
+            <g class="node deploy" tabindex="0" role="button" data-key="registry" aria-label="Signed image registry"><rect x="414" y="428" width="152" height="64" rx="10"/><text x="490" y="454" class="n-title">Registry</text><text x="490" y="474" class="n-sub">SBOM · Cosign signature</text></g>
+            <g class="node deploy" tabindex="0" role="button" data-key="argocd" aria-label="Argo CD GitOps"><rect x="614" y="428" width="152" height="64" rx="10"/><text x="690" y="454" class="n-title">Argo CD</text><text x="690" y="474" class="n-sub">pinned revision · sync</text></g>
+            <g class="node deploy" tabindex="0" role="button" data-key="k8s" aria-label="Kubernetes cluster"><rect x="814" y="428" width="152" height="64" rx="10"/><text x="890" y="454" class="n-title">Kubernetes</text><text x="890" y="474" class="n-sub">Helm · readiness · ShedLock</text></g>
+          </g>
+        </svg>
+        <aside class="arch-panel" aria-live="polite" id="arch-panel">
+          <p class="arch-kicker" id="arch-panel-kicker">Pick a node</p>
+          <h3 id="arch-panel-title">How the pieces hold each other up</h3>
+          <p id="arch-panel-text">Every box has a reason to exist and a failure it prevents. Hover or focus one to read it.</p>
+        </aside>
+        <template id="arch-copy">
+          <div data-key="edge" data-kicker="Edge" data-title="CDN, WAF and TLS termination"><p>Static and anonymous-safe paths are cacheable at the edge; anything authenticated never is. Long-lived connections send a heartbeat under the origin idle timeout so SSE survives the CDN.</p></div>
+          <div data-key="gateway" data-kicker="Gateway" data-title="One front door, OIDC inside"><p>Authenticates with the identity provider, resolves the tenant, and forwards an explicit tenant header downstream. Page chrome — menus, permissions, branding — is cached per tenant and user, never rebuilt per request.</p></div>
+          <div data-key="idp" data-kicker="Identity" data-title="Keycloak, OIDC and SAML"><p>A shared realm with tenant claims. Services never do their own password handling; they trust a signed token and still enforce tenant scope themselves.</p></div>
+          <div data-key="service" data-kicker="Domain service" data-title="Owns its facts, trusts nothing ambient"><p>Reads the tenant from the header and fails with 400 if it's missing — never a default. By-id loads check tenant ownership and answer 404 on mismatch. Reads use read-only transactions; lists are always paginated.</p></div>
+          <div data-key="outbox" data-kicker="Outbox" data-title="The event is written with the fact"><p>Cross-service side effects are rows in an outbox table inserted in the same transaction. If the write rolls back, so does the event. No dual-write problem, no async that loses tenant context.</p></div>
+          <div data-key="db" data-kicker="PostgreSQL" data-title="A database per service, RLS forced"><p>Two roles: an owner that runs migrations and an app role that cannot bypass row-level security. Every tenant table carries FORCE RLS, soft-delete columns and audit columns; every CREATE ships with its GRANT.</p></div>
+          <div data-key="service2" data-kicker="Second service" data-title="A different bounded context"><p>Keeps a projection of the other service's facts, keyed by the owner's id, carrying derived values rather than re-deriving another service's rule. One authority per fact.</p></div>
+          <div data-key="consumer" data-kicker="Consumer" data-title="Idempotent by unique constraint"><p>Inserts a dedupe marker on the producer's event key before the handler, in the same transaction, and catches the uniqueness violation narrowly. Permanent refusals return 2xx with a reason; transient faults return 5xx and retry.</p></div>
+          <div data-key="db2" data-kicker="PostgreSQL" data-title="The projection lives here"><p>Not built until something writes it: producer, consumer, backfill and one observed row. Replays from the beginning are legitimate, so values on the wire are absolute.</p></div>
+          <div data-key="kafka" data-kicker="Kafka" data-title="Tenant travels as a record header"><p>Topics are versioned; the envelope, header names and serializer live in one small shared kernel so a mistyped header can't compile and match nothing.</p></div>
+          <div data-key="relay" data-kicker="Relay" data-title="Polls the outbox, publishes, marks sent"><p>A scheduled worker under a distributed lock. At-least-once delivery is the contract; idempotent consumers make it safe.</p></div>
+          <div data-key="dlt" data-kicker="Dead letter" data-title="Bounded, blocking retry — then a human"><p>Delay-topic retries are banned: a retried event can be overtaken by a later one, so a reversal applies before its posting. Retry in place a few times, then park it where someone will look.</p></div>
+          <div data-key="git" data-kicker="Pull request" data-title="Where the standards are enforced"><p>Rule files, ratcheting lint baselines and review. Secrets are blocked by a pre-commit hook before they reach CI.</p></div>
+          <div data-key="ci" data-kicker="CI gates" data-title="One security workflow every service inherits"><p>Semgrep with custom rules for our own conventions, Trivy SCA and licence policy, gitleaks, Checkov on Terraform and Helm, ArchUnit, unit and integration tests, Playwright end to end.</p></div>
+          <div data-key="registry" data-kicker="Registry" data-title="SBOM attached, image signed"><p>CycloneDX bill of materials per build, Trivy image scan, Cosign signature. Admission policy can refuse anything unsigned.</p></div>
+          <div data-key="argocd" data-kicker="Argo CD" data-title="Deploy is a Git commit"><p>A bot bumps the image tag and pins the chart revision; Argo CD syncs the cluster to what Git says. Drift is detected, rollback is a revert.</p></div>
+          <div data-key="k8s" data-kicker="Kubernetes" data-title="Helm charts with opinions"><p>Readiness probes always; no liveness probe on a consumer — a broker hiccup must not become a restart loop. Singletons documented at the knob that scales them; distributed locks before replicas go above one.</p></div>
+        </template>
+      </div>
+
+      <h3 class="sub reveal" id="pipeline-title">How a change reaches production</h3>
+      <ol class="pipeline reveal" aria-labelledby="pipeline-title">
+        <li><span class="step">01</span><h4>Pull request</h4><p>Rules file · ratcheting lint baselines · pre-commit gitleaks</p></li>
+        <li><span class="step">02</span><h4>Static gates</h4><p>Semgrep (custom rules) · Trivy SCA + licence · Checkov IaC · ArchUnit</p></li>
+        <li><span class="step">03</span><h4>Tests</h4><p>JUnit 5 + Mockito · Testcontainers IT · seeded boot test · Playwright E2E</p></li>
+        <li><span class="step">04</span><h4>Build &amp; sign</h4><p>Multi-arch image · CycloneDX SBOM · Trivy image · Cosign</p></li>
+        <li><span class="step">05</span><h4>GitOps</h4><p>Bot bumps tag · pins revision · Argo CD syncs · drift check</p></li>
+        <li><span class="step">06</span><h4>Runtime</h4><p>Kubescape posture · ZAP pre-release · readiness · alerts</p></li>
+      </ol>
+    </section>
+
+    <!-- ============ AGENTS ============ -->
+    <section class="section" id="agents" aria-labelledby="agents-title">
+      <header class="section-head reveal">
+        <p class="eyebrow">Working with agents</p>
+        <h2 id="agents-title">Coding agents are fast, forgetful colleagues. I design for that.</h2>
+        <p class="section-intro">I use Claude Code across a 700k-line codebase every day. What makes it work isn't the prompt — it's the engineering around it.</p>
+      </header>
+      <div class="agent-grid">
+        <article class="agent reveal">
+          <span class="step">01</span>
+          <h3>The contract lives in the repo</h3>
+          <p>A rules file is the first thing any agent reads: entity and tenancy rules, the service standard, the form gate, the AppSec regime, the performance budget. Twenty-two rules, each traceable to a defect that actually happened. Humans and agents are held to the same text.</p>
+        </article>
+        <article class="agent reveal">
+          <span class="step">02</span>
+          <h3>Memory is tiered and kept current</h3>
+          <p>Base knowledge, then per-domain group memory, then platform. Updating a module's memory ships in the same change as the behaviour — stale knowledge is a defect, same as a stale comment. Over 160 memory files, indexed.</p>
+        </article>
+        <article class="agent reveal">
+          <span class="step">03</span>
+          <h3>Tokens are a budget</h3>
+          <p>I wrote skills that compress agent prose without losing technical substance, push for the smallest correct diff, and fan audits out to read-only subagents so only findings return to the main context. Logs are filtered before anything reads them.</p>
+        </article>
+        <article class="agent reveal">
+          <span class="step">04</span>
+          <h3>Verification over trust</h3>
+          <p>Agents claim; the build, the Playwright suite and a live browser verify. An agent-found convention becomes a Semgrep rule in the same change. Migration numbering, cross-tenant loads and form standards are checked by scripts, not by reading.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section class="section" id="contact" aria-labelledby="contact-title">
+      <header class="section-head reveal">
+        <p class="eyebrow">Contact</p>
+        <h2 id="contact-title">Let's talk about systems that have to be right.</h2>
+        <p class="section-intro">Open to senior backend, platform, identity and healthcare-systems roles. Email is quickest; the form goes to the same inbox.</p>
+      </header>
+      <div class="contact-grid reveal">
+        <form class="contact-form" action="https://formspree.io/f/mldwagrd" method="POST">
+          <div class="field">
+            <label for="cf-name">Name</label>
+            <input id="cf-name" name="name" type="text" autocomplete="name" maxlength="100" required>
+          </div>
+          <div class="field">
+            <label for="cf-email">Email</label>
+            <input id="cf-email" name="email" type="email" autocomplete="email" maxlength="200" placeholder="name@company.com" required>
+          </div>
+          <div class="field">
+            <label for="cf-message">Message</label>
+            <textarea id="cf-message" name="message" rows="6" maxlength="4000" required></textarea>
+          </div>
+          <input type="text" name="_gotcha" class="visually-hidden" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <button class="btn btn-primary" type="submit">Send message</button>
+        </form>
+        <ul class="contact-list">
+          <li><span class="label">Email</span><a href="mailto:messanjayshah@gmail.com">messanjayshah@gmail.com</a></li>
+          <li><span class="label">Phone</span><a href="tel:+9779863274892">+977 986 327 4892</a></li>
+          <li><span class="label">LinkedIn</span><a href="https://www.linkedin.com/in/mesanjay/" rel="noopener noreferrer" target="_blank">linkedin.com/in/mesanjay</a></li>
+          <li><span class="label">GitHub</span><a href="https://github.com/mesanjayshah" rel="noopener noreferrer" target="_blank">github.com/mesanjayshah</a></li>
+          <li><span class="label">Credly</span><a href="https://www.credly.com/users/sanjay-shah.861076ff" rel="noopener noreferrer" target="_blank">credly.com/users/sanjay-shah</a></li>
+          <li><span class="label">Résumé</span><a href="assets/resume.pdf">resume.pdf</a></li>
+        </ul>
+      </div>
     </section>
   </main>
 
   <footer class="site-footer">
     <p>© <span id="year">2026</span> Sanjay Shah · Kathmandu, Nepal</p>
-    <p class="muted small">Plain HTML and CSS. No trackers.</p>
+    <p class="muted small">Hand-written HTML, CSS and JavaScript. No framework, no build step, no trackers, no external requests.</p>
   </footer>
+
+  <!-- ============ COMMAND PALETTE ============ -->
+  <dialog id="palette" class="palette" aria-labelledby="palette-label">
+    <form method="dialog" class="palette-box">
+      <label id="palette-label" class="visually-hidden" for="palette-input">Search this site</label>
+      <input id="palette-input" type="search" placeholder="Jump to a section, link or action…" autocomplete="off" spellcheck="false" role="combobox" aria-expanded="true" aria-controls="palette-list" aria-autocomplete="list">
+      <ul id="palette-list" role="listbox" aria-label="Results">
+        <li role="option" data-action="go" data-target="#values" data-keys="values deliver security compliance future-proof">Values <small>Deliver · Security · Compliance · Future-proof</small></li>
+        <li role="option" data-action="go" data-target="#career" data-keys="career experience roles work history">Career <small>Three roles, 2019 → now</small></li>
+        <li role="option" data-action="go" data-target="#role-erp" data-keys="current erp hospital platform kafka postgres">Current role <small>Hospital &amp; enterprise ERP platform</small></li>
+        <li role="option" data-action="go" data-target="#role-iam" data-keys="iam identity okta keycloak sso scim saml oidc">Identity &amp; access management role</li>
+        <li role="option" data-action="go" data-target="#role-edu" data-keys="education saas erp react full stack">Education SaaS ERP role</li>
+        <li role="option" data-action="go" data-target="#capabilities" data-keys="skills capabilities stack tech">Capabilities <small>Depth-signalled skills map</small></li>
+        <li role="option" data-action="go" data-target="#principles" data-keys="principles rules engineering values">Principles</li>
+        <li role="option" data-action="go" data-target="#practice" data-keys="architecture diagram pipeline practice gitops">Practice <small>Architecture &amp; delivery pipeline</small></li>
+        <li role="option" data-action="go" data-target="#agents" data-keys="ai agents claude code mcp llm">Working with agents</li>
+        <li role="option" data-action="go" data-target="#contact" data-keys="contact email form hire">Contact</li>
+        <li role="option" data-action="href" data-target="assets/resume.pdf" data-keys="resume cv pdf download">Open résumé (PDF)</li>
+        <li role="option" data-action="href" data-target="mailto:messanjayshah@gmail.com" data-keys="email mail">Email messanjayshah@gmail.com</li>
+        <li role="option" data-action="href" data-target="https://github.com/mesanjayshah" data-keys="github code">GitHub ↗</li>
+        <li role="option" data-action="href" data-target="https://www.linkedin.com/in/mesanjay/" data-keys="linkedin">LinkedIn ↗</li>
+        <li role="option" data-action="href" data-target="https://www.credly.com/users/sanjay-shah.861076ff" data-keys="credly certifications okta badges">Credly badges ↗</li>
+        <li role="option" data-action="theme" data-keys="theme dark light toggle appearance">Toggle light / dark theme</li>
+      </ul>
+      <p class="palette-help"><kbd>↑</kbd><kbd>↓</kbd> navigate · <kbd>↵</kbd> select · <kbd>esc</kbd> close</p>
+    </form>
+  </dialog>
 </body>
 </html>
