@@ -125,11 +125,19 @@ h2 { font-size: clamp(2rem, 4.2vw, 3.2rem); max-width: 22ch; }
 .principles { list-style: none; margin-top: 22px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border-top: 1px solid var(--line); }
 .principles li { padding: 18px 20px 0 0; font-weight: 600; font-size: 1.02rem; letter-spacing: -0.01em; position: relative; }
 .principles li::before { content: "—"; color: var(--accent); margin-right: 10px; }
+.current { margin-top: 26px; padding: 16px 20px; border-radius: var(--r); border: 1px solid var(--accent-line); background: color-mix(in srgb, var(--bg-2) 85%, transparent); display: grid; grid-template-columns: auto 1fr; gap: 18px; align-items: center; }
+.current-label { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-mono); font-size: 0.74rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); white-space: nowrap; }
+.current-list { list-style: none; display: flex; flex-wrap: wrap; gap: 8px 10px; }
+.current-list li { display: grid; gap: 1px; padding: 8px 12px; border-radius: 10px; background: var(--bg-3); border: 1px solid var(--line); transition: border-color 0.2s ease, transform 0.2s ease; }
+.current-list li:hover { border-color: var(--accent-line); transform: translateY(-2px); }
+.current-list b { font-size: 0.9rem; font-weight: 650; letter-spacing: -0.01em; }
+.current-list span { font-family: var(--font-mono); font-size: 0.66rem; color: var(--fg-3); }
+@media (max-width: 760px) { .current { grid-template-columns: 1fr; gap: 12px; } }
 @media (max-width: 960px) { .values, .principles { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 560px) { .values, .principles { grid-template-columns: 1fr; } }
 
 /* ---------- career timeline ---------- */
-.timeline { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; position: relative; padding-top: 30px; }
+.timeline { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); grid-auto-rows: 1fr; gap: 16px; position: relative; padding-top: 30px; }
 .timeline::before { content: ""; position: absolute; left: var(--gutter); right: var(--gutter); top: 8px; height: 2px; background: linear-gradient(90deg, var(--line-2), var(--accent)); }
 .role { position: relative; padding: 22px 22px 20px; border-radius: var(--r); border: 1px solid var(--line); background: color-mix(in srgb, var(--bg-2) 80%, transparent); display: flex; flex-direction: column; gap: 10px; transition: border-color 0.25s ease, transform 0.25s ease; }
 .role::before { content: ""; position: absolute; top: -34px; left: 24px; width: 14px; height: 14px; border-radius: 50%; background: var(--bg); border: 2px solid var(--fg-3); }
@@ -141,7 +149,8 @@ h2 { font-size: clamp(2rem, 4.2vw, 3.2rem); max-width: 22ch; }
 .tag.now { border-color: var(--accent-line); color: var(--accent); background: var(--accent-soft); }
 .role h3 { font-size: 1.45rem; }
 .domain { color: var(--fg-2); font-size: 0.95rem; }
-.summary { font-size: 1rem; color: var(--fg); margin-top: 4px; }
+.summary { font-size: 0.95rem; color: var(--fg); margin-top: 2px; }
+.lbl { display: block; font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 2px; }
 .points { list-style: none; display: grid; gap: 8px; margin-top: 6px; }
 .points li { position: relative; padding-left: 18px; color: var(--fg-2); font-size: 0.93rem; line-height: 1.5; }
 .points li::before { content: ""; position: absolute; left: 0; top: 0.65em; width: 9px; height: 2px; background: var(--accent); }
