@@ -95,7 +95,10 @@ h2 { font-size: clamp(1.75rem, 3.2vw, 2.4rem); max-width: 26ch; }
 /* ---------- hero ---------- */
 .hero { max-width: var(--maxw); margin: 0 auto; padding: clamp(36px, 5.5vw, 64px) var(--gutter) clamp(36px, 5vw, 56px); }
 .hero-grid { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(320px, 0.75fr); gap: clamp(28px, 5vw, 72px); align-items: center; }
-.hero h1 { font-size: clamp(2rem, 3.1vw, 2.6rem); font-weight: 640; letter-spacing: -0.035em; line-height: 1.04; margin: 0 0 18px; }
+.hero-values { list-style: none; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; max-width: 34rem; margin: 0 0 28px; }
+.hero-values li { display: flex; align-items: center; gap: 10px; padding: 12px 14px; border: 1px solid var(--line); border-radius: 12px; background: var(--bg-2); font-weight: 600; font-size: 0.95rem; }
+.hero-values svg { flex: none; color: var(--accent); }
+.hero h1 { font-size: clamp(2.3rem, 4.6vw, 4.1rem); font-weight: 680; max-width: 15ch; letter-spacing: -0.035em; line-height: 1.04; margin: 0 0 18px; }
 .hero h1 em { font-style: normal; background: linear-gradient(90deg, var(--accent), var(--accent-2)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
 .lead { font-size: clamp(1.05rem, 1.5vw, 1.25rem); color: var(--fg-2); margin-bottom: 26px; max-width: 54ch; }
 .actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
@@ -106,7 +109,7 @@ h2 { font-size: clamp(1.75rem, 3.2vw, 2.4rem); max-width: 26ch; }
 .glance { padding: 22px; border-radius: 20px; border: 1px solid var(--line); background: color-mix(in srgb, var(--bg-2) 92%, transparent); box-shadow: var(--shadow); position: relative; }
 .glance::before { content: ""; position: absolute; inset: -1px; border-radius: 21px; pointer-events: none; padding: 1px; background: linear-gradient(135deg, var(--accent-line), transparent 45%, transparent 60%, color-mix(in srgb, var(--accent-2) 40%, transparent)); -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude; }
 .glance-head { display: grid; gap: 14px; margin-bottom: 16px; }
-.glance-photo { width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 30%; border-radius: 14px; border: 1px solid var(--line-2); }
+.glance-photo { width: 100%; height: auto; aspect-ratio: 1 / 1; object-fit: cover; object-position: 50% 35%; border-radius: 14px; border: 1px solid var(--line-2); }
 .glance-kicker { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); }
 .glance-name { font-weight: 700; font-size: 1.15rem; }
 .glance-list { display: grid; gap: 10px; margin-bottom: 18px; }
